@@ -32,13 +32,13 @@ export const TestimonialsAndFAQ = () => {
               Real Client Stories
             </Badge>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
-              When Health Emergencies Strike,{" "}
+              When Emergencies Strike,{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
-                Our Agents Stand By Your Side
+                Your Dedicated Agent Stands By You
               </span>
             </h2>
             <p className="text-slate-400 text-base sm:text-lg">
-              Read how Sneha Medicare advisors turned midnight hospital stress into smooth, cashless relief for families across India.
+              Read how Sneha helped clients navigate hospital cashless admissions, zero-dep car accident claims, Schengen travel delays, and LIC family security with zero hassle.
             </p>
           </div>
 
@@ -127,12 +127,12 @@ export const TestimonialsAndFAQ = () => {
           </div>
 
           <div className="mt-8 text-center p-6 rounded-2xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300">
-            <span>Still have questions about your specific family health history or pre-existing conditions?</span>{" "}
+            <span>Have specific questions about health, car zero-dep, travel Schengen visa, or LIC life policies?</span>{" "}
             <a
-              href="tel:18008887634"
+              href="tel:+919876543210"
               className="text-cyan-400 font-bold hover:underline inline-flex items-center gap-1 ml-1"
             >
-              Speak to a licensed Sneha agent at 1800-888-SNEHA (Toll Free)
+              Speak directly to Sneha at +91 98765 43210 (Direct & WhatsApp)
             </a>
           </div>
         </div>

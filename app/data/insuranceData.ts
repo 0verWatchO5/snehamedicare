@@ -10,87 +10,87 @@ export interface AgentService {
 
 export const AGENT_SERVICES: AgentService[] = [
   {
-    id: "new-policy-consulting",
-    title: "New Policy Advisory & Comparison",
-    tagline: "Unbiased, multi-insurer plan selection tailored to your family's exact medical needs.",
-    description: "I evaluate policies across India's top insurers (Star Health, HDFC ERGO, Care, Niva Bupa) to recommend the ideal sum insured, zero room rent capping, and maximum value at official company pricing.",
-    badge: "100% Free Consultation",
+    id: "health-insurance",
+    title: "Health Insurance & Cashless Hospitalization",
+    tagline: "Unbiased plan selection across Star Health and Tata AIG with zero room rent capping.",
+    description: "I evaluate comprehensive health plans from Star Health and Tata AIG to recommend ideal family floater coverage, day-1 pre-existing coverage, and 100% restoration benefits at official insurer rates.",
+    badge: "Star Health & Tata AIG",
     iconName: "ShieldCheck",
     deliverables: [
-      "Side-by-side comparison of top 3 suited policies",
-      "Analysis of room rent limits & restore benefits",
-      "Pre-existing disease disclosure guidance",
-      "Immediate digital issuance at official rates"
+      "Custom family floaters & senior citizen care",
+      "Zero room rent restrictions & restore benefits",
+      "Fast-track pre-existing condition waiting periods",
+      "Immediate digital policy issuance with ₹0 agent fee"
     ]
   },
   {
-    id: "policy-audit",
-    title: "Free Existing Policy Health Check & Audit",
-    tagline: "Find out if your existing policy has dangerous hidden clauses before an emergency strikes.",
-    description: "Already have a health policy or corporate group cover? Share your policy schedule with me. I audit it thoroughly to identify hidden 1% room-rent traps, disease sub-limits, high copays, or coverage gaps.",
-    badge: "Most Requested Service",
-    iconName: "FileSearch",
+    id: "car-motor-insurance",
+    title: "Car & Two-Wheeler Motor Insurance",
+    tagline: "Zero-depreciation motor coverage with instant cashless garage claim assistance.",
+    description: "Protect your vehicle with Tata AIG's industry-leading Auto Secure plans. Enjoy bumper-to-bumper zero dep, engine protection, return to invoice, and 24x7 spot roadside assistance.",
+    badge: "Tata AIG Authorized",
+    iconName: "Zap",
     deliverables: [
-      "Identification of hidden room rent & surgeon capping",
-      "Assessment of PED waiting period & restoration clauses",
-      "Evaluation of employer coverage sufficiency",
-      "Written audit report with actionable advice"
+      "Bumper-to-bumper Zero Depreciation add-on",
+      "Engine & gearbox hydro-lock protection",
+      "Access to 7,500+ cashless network garages",
+      "Seamless No Claim Bonus (NCB) transfer up to 50%"
+    ]
+  },
+  {
+    id: "travel-insurance",
+    title: "International & Domestic Travel Insurance",
+    tagline: "Schengen & US embassy approved overseas medical and trip delay coverage.",
+    description: "Traveling abroad for vacation, business, or studies? I issue instant travel policies from Tata AIG and Star Health covering overseas medical emergencies, lost baggage, passport loss, and flight cancellations.",
+    badge: "Schengen & USA Visa Ready",
+    iconName: "Clock",
+    deliverables: [
+      "Emergency medical treatment & hospital cashless abroad",
+      "Schengen visa compliant with €30,000+ minimum cover",
+      "Baggage delay, lost passport & trip cancellation",
+      "Student travel & senior citizen overseas medical cover"
+    ]
+  },
+  {
+    id: "lic-life-insurance",
+    title: "LIC Life, Term & Retirement Planning",
+    tagline: "India's most trusted sovereign-backed life protection and term security.",
+    description: "As an authorized agent for Life Insurance Corporation of India (LIC), I help you design pure term insurance, child education funds, and guaranteed lifetime pension plans with Section 80C tax benefits.",
+    badge: "LIC of India",
+    iconName: "Heart",
+    deliverables: [
+      "High sum assured pure term plans (Tech Term / Jeevan Amar)",
+      "Guaranteed child education & marriage maturity funds",
+      "Lifetime pension & retirement annuities (Saral Pension)",
+      "100% Sovereign Guarantee by the Government of India"
     ]
   },
   {
     id: "cashless-claim-assistance",
-    title: "24/7 Bedside Cashless Claim Defense",
-    tagline: "Personal coordination with hospital TPA desk to get your pre-authorization approved.",
-    description: "When hospitalization occurs, you shouldn't be stressing over paperwork. Send me the admission slip via WhatsApp at any hour; I call the hospital TPA desk and insurer to fast-track cashless pre-auth.",
-    badge: "24/7 Emergency Support",
-    iconName: "Clock",
+    title: "24/7 Claim Advocacy & Emergency Defense",
+    tagline: "Personal coordination during hospital admissions, car accidents & overseas emergencies.",
+    description: "When an emergency strikes, you shouldn't be negotiating with call centers. Reach Sneha directly. I personally coordinate hospital TPA desks, cashless garages for vehicle repairs, and emergency claim documents.",
+    badge: "24/7 Personal Claim Help",
+    iconName: "HeartHandshake",
     deliverables: [
-      "Direct follow-up with hospital TPA billing counter",
-      "Expedited pre-authorization turnaround in ~45 mins",
-      "Resolution of query letters and document deficiencies",
+      "Hospital TPA pre-authorization turnaround in ~45 mins",
+      "Cashless car accident claim coordination with surveyor",
+      "Assistance with overseas medical bills & reimbursement",
       "Zero out-of-pocket surprise bill advocacy"
     ]
   },
   {
-    id: "senior-parents-consulting",
-    title: "Senior Citizens & Pre-Existing Illness Consulting",
-    tagline: "Dedicated solutions for parents (60+) and individuals with diabetes, BP, or cardiac history.",
-    description: "Securing coverage for senior parents can be tough due to age and medical history. I specialize in finding plans with waived medical checkups, day-30 chronic coverage, and reduced waiting periods.",
-    badge: "Specialized Advisory",
-    iconName: "Heart",
+    id: "policy-audit-servicing",
+    title: "Free Multi-Policy Audit & Renewal Servicing",
+    tagline: "A single dedicated human advisor for all your family's insurance policies.",
+    description: "Consolidate your insurance portfolio. Share your existing health, motor, travel, or LIC policy documents. I audit them for hidden sub-limits, ensure timely renewals, and handle all nominee or address endorsements.",
+    badge: "Complete Portfolio Care",
+    iconName: "FileSearch",
     deliverables: [
-      "Policies with no pre-policy checkup up to age 70",
-      "Fast-track waiting periods for diabetes & hypertension",
-      "Domiciliary hospitalization & Ayush treatment coverage",
-      "Co-pay reduction & waiver strategy"
-    ]
-  },
-  {
-    id: "super-topup-planning",
-    title: "₹1 Crore Super Top-Up Upgrade Strategy",
-    tagline: "Multiply your existing cover up to ₹1 Crore at a fraction of the standard cost.",
-    description: "Medical inflation is rising rapidly. I help you construct a high-value super top-up shield with low deductibles so your family is protected against major health events for just ₹12–15 a day.",
-    badge: "Smart Money Strategy",
-    iconName: "Zap",
-    deliverables: [
-      "Seamless integration with your employer health insurance",
-      "Zero room rent restrictions on super top-up layer",
-      "High buffer threshold against critical surgeries",
-      "Guaranteed lifelong renewability"
-    ]
-  },
-  {
-    id: "lifelong-policy-servicing",
-    title: "Hassle-Free Policy Servicing & Endorsements",
-    tagline: "A single human contact for all changes, endorsements, and Section 80D tax receipts.",
-    description: "No more waiting on customer care phone trees. Message me on WhatsApp to add your spouse or newborn, change address, switch coverage tiers, or download annual tax-saving certificates.",
-    badge: "Lifelong Support",
-    iconName: "HeartHandshake",
-    deliverables: [
-      "Adding spouse or newborn to your family policy",
-      "Address, contact details & nominee endorsement updates",
-      "Instant Section 80D tax receipt generation (Save up to ₹75k)",
-      "Advance renewal reminders so coverage never lapses"
+      "Identification of hidden capping & coverage gaps",
+      "Advance renewal reminders so protection never lapses",
+      "Endorsement updates (nominee, address, vehicle transfer)",
+      "Section 80D & Section 80C tax-saving certificates"
     ]
   }
 ];
@@ -102,56 +102,36 @@ export interface PartnerInsurer {
   claimRatio: string;
   networkHospitals: string;
   badge: string;
+  coverageTypes: string;
 }
 
 export const PARTNER_INSURERS: PartnerInsurer[] = [
   {
     name: "Star Health Insurance",
     code: "STAR",
-    tagline: "India's First Standalone Health Insurer",
+    tagline: "India's Premier Standalone Health Insurer",
     claimRatio: "99.1%",
-    networkHospitals: "14,000+",
-    badge: "Top Choice for Families"
+    networkHospitals: "14,000+ Hospitals",
+    badge: "Specialist Health & Senior Care",
+    coverageTypes: "Family Health • Senior Citizens • Super Top-Up"
   },
   {
-    name: "HDFC ERGO General Insurance",
-    code: "HDFC",
-    tagline: "Trusted Banking Grade Healthcare Security",
-    claimRatio: "98.7%",
-    networkHospitals: "13,000+",
-    badge: "Fastest Settlement Speed"
-  },
-  {
-    name: "Care Health Insurance",
-    code: "CARE",
-    tagline: "Specialized Critical Illness & Maternity Plans",
-    claimRatio: "98.4%",
-    networkHospitals: "11,500+",
-    badge: "Unlimited Recharge Benefit"
-  },
-  {
-    name: "Niva Bupa Health Insurance",
-    code: "NIVA",
-    tagline: "Formerly Max Bupa - Premium Care Experience",
-    claimRatio: "98.9%",
-    networkHospitals: "10,000+",
-    badge: "Any-Room Upgrade Advantage"
-  },
-  {
-    name: "ICICI Lombard Health",
-    code: "ICICI",
-    tagline: "Comprehensive Multi-Tier Cashless Hospital Network",
+    name: "LIC of India",
+    code: "LIC",
+    tagline: "Life Insurance Corporation — Yogakshemam Vahamyaham",
     claimRatio: "98.5%",
-    networkHospitals: "12,500+",
-    badge: "Instant Digital Approvals"
+    networkHospitals: "Sovereign Guarantee",
+    badge: "India's #1 Life & Term Insurer",
+    coverageTypes: "Pure Term Life • Child Future • Pension & Annuity"
   },
   {
-    name: "Aditya Birla Health Insurance",
-    code: "ABHI",
-    tagline: "Health Returns & Chronic Care Management",
-    claimRatio: "97.8%",
-    networkHospitals: "10,500+",
-    badge: "Earn Up to 100% Premium Back"
+    name: "Tata AIG General Insurance",
+    code: "TATA AIG",
+    tagline: "With You Always — Auto, Travel & Health Security",
+    claimRatio: "99.0%",
+    networkHospitals: "7,500+ Garages & 10,000+ Hospitals",
+    badge: "Top Choice for Car & Travel",
+    coverageTypes: "Zero-Dep Car • Schengen Travel • Health & Critical Care"
   }
 ];
 
@@ -161,7 +141,7 @@ export interface InsurancePlan {
   underwriter: string;
   tagline: string;
   badge?: string;
-  category: "family" | "senior" | "critical" | "topup" | "maternity";
+  category: "family" | "senior" | "car" | "travel" | "life" | "topup";
   minAge: number;
   maxAge: number;
   startingPremiumMonthly: number;
@@ -182,11 +162,11 @@ export interface InsurancePlan {
 
 export const INSURANCE_PLANS: InsurancePlan[] = [
   {
-    id: "family-shield-pro",
-    name: "Family Health Optima & ReAssure",
-    underwriter: "Star Health & Niva Bupa",
+    id: "star-family-comprehensive",
+    name: "Star Health Comprehensive Floater",
+    underwriter: "Star Health Insurance",
     tagline: "Comprehensive family floater covering self, spouse, and kids with zero room rent capping.",
-    badge: "Sneha's Top Recommendation",
+    badge: "Sneha's Top Health Pick",
     category: "family",
     minAge: 18,
     maxAge: 65,
@@ -199,7 +179,7 @@ export const INSURANCE_PLANS: InsurancePlan[] = [
       "100% Unlimited Sum Insured Restoration for unrelated medical conditions",
       "Free Annual Full-Body Preventive Health Checkup for all adult members",
       "Cumulative No-Claim Bonus up to 100% (increases every claim-free year)",
-      "Direct personal claim assistance from Sneha during hospitalization"
+      "Direct personal claim assistance from Sneha at 14,000+ cashless hospitals"
     ],
     features: {
       roomRent: "No Capping (Single Private AC Room)",
@@ -212,10 +192,100 @@ export const INSURANCE_PLANS: InsurancePlan[] = [
     }
   },
   {
+    id: "tata-aig-auto-secure",
+    name: "Tata AIG Auto Secure (Car Package)",
+    underwriter: "Tata AIG General Insurance",
+    tagline: "Zero-depreciation motor coverage with instant cashless garage claim settlement.",
+    badge: "7,500+ Cashless Garages",
+    category: "car",
+    minAge: 18,
+    maxAge: 80,
+    startingPremiumMonthly: 690,
+    startingPremiumAnnual: 7850,
+    sumInsuredOptions: ["IDV Based", "Zero Depreciation", "Engine Protection", "Return to Invoice"],
+    popular: true,
+    keyBenefits: [
+      "Bumper-to-bumper Zero Depreciation coverage for plastic, fiber & metal parts",
+      "Engine & Gearbox Protection against water ingression & oil leakage",
+      "Access to 7,500+ cashless network garages across India",
+      "24/7 Spot Roadside Assistance: emergency towing, jump-start & flat tyre",
+      "Seamless No Claim Bonus (NCB) transfer up to 50% from existing insurer"
+    ],
+    features: {
+      roomRent: "N/A (Motor Coverage)",
+      prePostHosp: "Instant cashless garage survey",
+      noClaimBonus: "Up to 50% NCB transfer",
+      restoration: "Return to invoice value option",
+      waitingPeriodPED: "Immediate coverage upon inspection",
+      dayCareProcedures: "Glass, fiber & metal repair covered",
+      healthCheckup: "Free vehicle inspection"
+    }
+  },
+  {
+    id: "tata-aig-travel-guard",
+    name: "Tata AIG Travel Guard (Overseas & Schengen)",
+    underwriter: "Tata AIG General Insurance",
+    tagline: "Embassy-approved international travel shield with cashless hospital care abroad.",
+    badge: "Schengen & US Visa Approved",
+    category: "travel",
+    minAge: 6,
+    maxAge: 85,
+    startingPremiumMonthly: 420,
+    startingPremiumAnnual: 1850,
+    sumInsuredOptions: ["$50,000", "$100,000 (Schengen)", "$250,000", "$500,000 (USA/Canada)"],
+    popular: true,
+    keyBenefits: [
+      "Compliant with Schengen visa requirements (min €30,000 medical coverage)",
+      "Cashless emergency hospitalization & medical evacuation worldwide",
+      "Compensation for checked baggage loss, passport theft & trip cancellation",
+      "Flight delay & missed connection emergency hotel accommodation allowance",
+      "Direct WhatsApp emergency coordination with Sneha while you travel"
+    ],
+    features: {
+      roomRent: "Hospital room covered abroad",
+      prePostHosp: "Medical evacuation included",
+      noClaimBonus: "N/A (Trip policy)",
+      restoration: "Reimbursement & cashless network",
+      waitingPeriodPED: "Emergency life-saving PED covered",
+      dayCareProcedures: "Emergency outpatient covered",
+      healthCheckup: "No medical test needed"
+    }
+  },
+  {
+    id: "lic-tech-term-amar",
+    name: "LIC Tech Term & Jeevan Amar",
+    underwriter: "LIC of India",
+    tagline: "India's #1 pure term life cover backed by the Sovereign Guarantee of India.",
+    badge: "Govt of India Sovereign Guarantee",
+    category: "life",
+    minAge: 18,
+    maxAge: 65,
+    startingPremiumMonthly: 790,
+    startingPremiumAnnual: 8990,
+    sumInsuredOptions: ["₹50 Lakh", "₹1 Crore", "₹1.5 Crore", "₹2 Crore"],
+    popular: true,
+    keyBenefits: [
+      "100% Sovereign Guarantee under Section 37 of LIC Act by Govt of India",
+      "High sum assured life protection at lowest non-smoker rates",
+      "Accidental Death & Disability Benefit riders for 2x financial security",
+      "Guaranteed lumpsum or regular monthly income payout to your nominees",
+      "Tax deductions under Section 80C & 100% tax-free claim under Section 10(10D)"
+    ],
+    features: {
+      roomRent: "N/A (Pure Life Cover)",
+      prePostHosp: "Lumpsum payment to nominee",
+      noClaimBonus: "Guaranteed sum assured",
+      restoration: "Terminal illness acceleration",
+      waitingPeriodPED: "Standard medical underwriting",
+      dayCareProcedures: "N/A (Life Insurance)",
+      healthCheckup: "Free tele-MER or clinic checkup"
+    }
+  },
+  {
     id: "senior-citizen-care",
-    name: "Senior Golden Years Health Shield",
-    underwriter: "Care Health & Star Health",
-    tagline: "Tailored policy for parents and seniors (60+) recommended personally by Sneha.",
+    name: "Star Health Senior Citizen Red Carpet",
+    underwriter: "Star Health Insurance",
+    tagline: "Tailored policy for parents and seniors (60+) with no pre-policy medical tests.",
     badge: "No Medical Checkup Required",
     category: "senior",
     minAge: 60,
@@ -224,8 +294,8 @@ export const INSURANCE_PLANS: InsurancePlan[] = [
     startingPremiumAnnual: 21990,
     sumInsuredOptions: ["₹5 Lakh", "₹10 Lakh", "₹15 Lakh", "₹25 Lakh"],
     keyBenefits: [
-      "No pre-policy medical checkup mandatory up to age 70",
-      "Coverage for Diabetes, Hypertension & Cardiac conditions after 30 days",
+      "No pre-policy medical checkup mandatory up to age 75",
+      "Coverage for Diabetes, Hypertension & Cardiac conditions after 11 months",
       "Domiciliary hospitalization & home nursing allowance included",
       "Co-pay reduction options negotiated personally with the underwriter",
       "Ayush (Ayurveda, Yoga, Homeopathy) inpatient coverage included"
@@ -235,96 +305,38 @@ export const INSURANCE_PLANS: InsurancePlan[] = [
       prePostHosp: "30 Days Pre / 60 Days Post",
       noClaimBonus: "10% per year, up to 50%",
       restoration: "1-time 100% refill",
-      waitingPeriodPED: "12 - 24 Months for listed conditions",
+      waitingPeriodPED: "Reduced waiting period for listed conditions",
       dayCareProcedures: "All recognized procedures",
       healthCheckup: "Free Geriatric Cardiac & Sugar panel"
     }
   },
   {
-    id: "critical-illness-elite",
-    name: "Comprehensive Critical Illness Shield",
-    underwriter: "HDFC ERGO & ICICI Lombard",
-    tagline: "Guaranteed lump-sum payout on first diagnosis of 36 critical illnesses including cancer.",
-    badge: "Direct Lump Sum Cash",
-    category: "critical",
-    minAge: 18,
-    maxAge: 65,
-    startingPremiumMonthly: 650,
-    startingPremiumAnnual: 7490,
-    sumInsuredOptions: ["₹10 Lakh", "₹25 Lakh", "₹50 Lakh", "₹1 Crore"],
-    keyBenefits: [
-      "100% Cash payout directly into your bank account with zero medical bills needed",
-      "Covers 36 major ailments: Cancer, Heart Attack, Stroke, Kidney & Organ Failure",
-      "Second medical opinion arranged with premier national and international faculties",
-      "Protects family income and ongoing household EMIs during recovery",
-      "Full Section 80D tax deduction up to ₹75,000"
-    ],
-    features: {
-      roomRent: "Lump sum given directly to policyholder",
-      prePostHosp: "Immediate payout upon 30-day survival",
-      noClaimBonus: "Fixed guaranteed sum",
-      restoration: "Lump sum benefit",
-      waitingPeriodPED: "90 days initial waiting period",
-      dayCareProcedures: "Covered under policy terms",
-      healthCheckup: "Annual Oncological & Cardiac screen"
-    }
-  },
-  {
-    id: "super-top-up-booster",
-    name: "₹1 Crore Super Top-Up Multiplier",
-    underwriter: "Care Health & Niva Bupa",
-    tagline: "Boost your employer or existing base policy coverage to ₹1 Crore for just ₹13/day.",
-    badge: "Maximum Value For Money",
+    id: "tata-aig-medicare-premier",
+    name: "Tata AIG MediCare Premier & Super Top-Up",
+    underwriter: "Tata AIG General Insurance",
+    tagline: "Global medical treatment, OPD consultations, and maternity in a single high-tier plan.",
+    badge: "Worldwide Emergency Treatment",
     category: "topup",
     minAge: 18,
     maxAge: 70,
-    startingPremiumMonthly: 390,
-    startingPremiumAnnual: 4450,
-    sumInsuredOptions: ["₹25 Lakh (Ded. ₹3L)", "₹50 Lakh (Ded. ₹5L)", "₹1 Crore (Ded. ₹5L)"],
+    startingPremiumMonthly: 990,
+    startingPremiumAnnual: 11200,
+    sumInsuredOptions: ["₹10 Lakh", "₹25 Lakh", "₹50 Lakh", "₹1 Crore"],
     keyBenefits: [
-      "Multiply existing employer/personal cover up to ₹1 Crore at minimal premium",
-      "Aggregate deductible across all medical events in a policy year",
-      "Zero room rent restrictions once the deductible threshold is crossed",
-      "Cashless hospitalization supported across all 12,000+ networked hospitals",
-      "Lifelong renewability guaranteed by partner underwriters"
+      "Global Cover: Inpatient treatment covered abroad for listed critical surgeries",
+      "Zero room rent restrictions — stay in any private or suite room without penalty",
+      "Restore benefit up to 100% of sum insured automatically upon exhaustion",
+      "OPD dental, ophthalmic, and vaccination coverage included",
+      "Cumulative bonus increases sum insured by 50% for every claim-free year"
     ],
     features: {
-      roomRent: "No Capping",
+      roomRent: "No Capping (Suite Room Allowed)",
       prePostHosp: "60 Days Pre / 90 Days Post",
-      noClaimBonus: "Not required on top-up",
-      restoration: "High buffer threshold",
-      waitingPeriodPED: "12 Months on top-up tier",
-      dayCareProcedures: "Full day care coverage",
-      healthCheckup: "Included on 3-year term"
-    }
-  },
-  {
-    id: "maternity-newborn-bliss",
-    name: "Mother & Newborn Joy Package",
-    underwriter: "Star Health & Care Health",
-    tagline: "Carefully curated maternal healthcare covering deliveries, pre/post natal, and newborn care.",
-    badge: "Day 1 Baby Cover",
-    category: "maternity",
-    minAge: 21,
-    maxAge: 45,
-    startingPremiumMonthly: 1250,
-    startingPremiumAnnual: 14500,
-    sumInsuredOptions: ["₹5 Lakh", "₹10 Lakh", "₹15 Lakh"],
-    keyBenefits: [
-      "Normal and Caesarean (C-Section) delivery expenses covered",
-      "Day 1 baby cover for congenital conditions, incubator, and ICU care",
-      "Covers all government and pediatric recommended vaccinations for year 1",
-      "Ultrasounds, regular OB-GYN consultations, and lab investigations included",
-      "Sneha personally coordinates pre-authorization with the maternity desk"
-    ],
-    features: {
-      roomRent: "Single Private Room",
-      prePostHosp: "Pre & Post natal expenses covered",
-      noClaimBonus: "10% per year",
-      restoration: "Available for non-maternity claims",
-      waitingPeriodPED: "Reduced waiting options available",
-      dayCareProcedures: "Includes advanced maternal procedures",
-      healthCheckup: "Specialized maternal health panel"
+      noClaimBonus: "50% per claim-free year, up to 100%",
+      restoration: "100% Unlimited Restores",
+      waitingPeriodPED: "24 Months",
+      dayCareProcedures: "All day care procedures",
+      healthCheckup: "Free yearly comprehensive wellness checkup"
     }
   }
 ];
@@ -452,61 +464,61 @@ export const CASHLESS_HOSPITALS: CashlessHospital[] = [
 
 export const TESTIMONIALS = [
   {
-    name: "Rajesh & Priya Sharma",
-    role: "IT Professional, Bengaluru",
-    story: "When my father was admitted late at night at Manipal Hospital, Sneha personally answered my call within seconds. She got in touch with the hospital's TPA desk directly, submitted the documents, and secured cashless approval in 32 minutes. Having Sneha as our personal agent is priceless!",
-    rating: 5,
-    plan: "Senior Golden Years Shield (Care Health)",
-    claimAmount: "₹4.85 Lakh Cashless"
-  },
-  {
     name: "Dr. Ananya Sengupta",
     role: "Assistant Professor, Mumbai",
-    story: "Online websites just sell policies and disappear when you need a claim. Sneha sat down with me, analyzed my family's needs, and picked a plan with zero room rent capping from Star Health. When my daughter had dengue, Sneha managed the claim from start to finish.",
+    story: "Online websites just sell policies and disappear when you need a claim. Sneha sat down with me, analyzed my family's needs, and picked a plan with zero room rent capping from Star Health. When my daughter had dengue, Sneha managed the hospital cashless pre-auth from start to finish.",
     rating: 5,
-    plan: "Family Health Optima (Star Health)",
+    plan: "Star Health Comprehensive Floater",
     claimAmount: "₹1.42 Lakh Cashless"
   },
   {
-    name: "Vikramaditya Rao",
-    role: "Entrepreneur, Hyderabad",
-    story: "Sneha reviewed our corporate cover and suggested adding a ₹1 Crore Super Top-Up policy from Niva Bupa. The premium was astonishingly low, and her transparent explanation of fine print and deductibles was deeply refreshing.",
+    name: "Karan & Neha Malhotra",
+    role: "Tech Consultant, Bengaluru",
+    story: "Sneha handled our Tata AIG car insurance with bumper-to-bumper zero dep. When our SUV had accidental damage on the highway, Sneha coordinated directly with the Tata AIG surveyor and the cashless workshop. Not a single rupee out of pocket for parts!",
     rating: 5,
-    plan: "₹1 Crore Super Top-Up (Niva Bupa)",
-    claimAmount: "Peace of Mind"
+    plan: "Tata AIG Auto Secure (Zero Dep)",
+    claimAmount: "₹68,500 Cashless Garage"
+  },
+  {
+    name: "Vikramaditya Rao",
+    role: "Entrepreneur & Frequent Traveler, Hyderabad",
+    story: "Sneha manages all our insurance: our LIC pure term life plan, our Star Health family floater, and our Schengen travel insurance for our Europe trip. Having one single trusted human agent for all policies gives our entire family absolute peace of mind.",
+    rating: 5,
+    plan: "LIC Term Life & Tata AIG Travel Guard",
+    claimAmount: "Full Family Portfolio"
   }
 ];
 
 export const FAQS = [
   {
-    question: "Who is Sneha? Is this a company or an individual agent?",
-    answer: "Sneha is a certified, licensed individual health insurance agent and personal advisor — not a corporate company or agency. This website showcases Sneha's dedicated insurance advisory and claim assistance services. You work directly with Sneha 1-on-1 for personalized guidance, policy audits, and 24/7 bedside claim support."
+    question: "Who is Sneha? Is this an agency or a dedicated personal agent?",
+    answer: "Sneha is a certified, licensed individual insurance agent representing Star Health, LIC of India, and Tata AIG General Insurance. You work directly with Sneha 1-on-1 for personalized insurance planning across health, car, travel, and life, with direct personal assistance when filing claims."
   },
   {
-    question: "What services does Sneha provide?",
-    answer: "Sneha provides comprehensive end-to-end health insurance services: (1) Free Multi-Insurer Policy Comparison across Star Health, HDFC ERGO, Care, and Niva Bupa, (2) Free Existing Policy Audits to identify hidden room-rent capping and sub-limits, (3) 24/7 Bedside Cashless Hospital Claim Assistance, (4) Senior Citizen & PED Advisory, (5) Super Top-Up Planning up to ₹1 Crore, and (6) Lifelong Policy Servicing, endorsements, and Section 80D tax certificates."
+    question: "Which insurance products does Sneha cover?",
+    answer: "Sneha covers the complete spectrum of family and personal insurance: (1) Health Insurance & Senior Citizen Care via Star Health and Tata AIG, (2) Motor & Car Insurance with zero depreciation via Tata AIG, (3) International & Domestic Travel Insurance (Schengen & US visa approved) via Tata AIG and Star Health, and (4) Pure Term Life, Retirement, and Child Future Planning with LIC of India."
   },
   {
-    question: "Do I have to pay Sneha any fee for her services?",
-    answer: "No, absolutely ₹0! Sneha's advisory, policy comparison, document review, and claim assistance services are 100% free of charge to you. Policies are issued at standard, IRDAI-regulated official insurer tariffs without any markups or extra fees."
+    question: "Do I have to pay Sneha any consultation or service fee?",
+    answer: "No, absolutely ₹0! Sneha's advisory, policy comparison, quotes, and claim assistance services are 100% free of charge to you. All policies are issued at standard, IRDAI-regulated official company tariffs with zero markups or hidden fees."
   },
   {
-    question: "Why should I work with an individual agent like Sneha instead of an online portal?",
-    answer: "When you buy directly online, you get automated bots, hold music, and zero claim support during emergency hospital admissions. With Sneha, you have an experienced human agent on WhatsApp and phone who personally contacts the hospital TPA desk to expedite cashless approvals and defend your claims."
+    question: "Why choose a personal agent over an online aggregator or website?",
+    answer: "When you buy directly online, you get impersonal call center queues and automated chatbots during emergencies. With Sneha, you have a direct human contact on WhatsApp and phone who coordinates with hospital TPA desks for cashless admission, liaises with motor surveyors for car claims, and expedites documentation."
   },
   {
-    question: "Which insurance companies does Sneha work with?",
-    answer: "Sneha is authorized to advise and arrange policies with India's leading health insurers, including Star Health Insurance, HDFC ERGO General Insurance, Care Health Insurance, Niva Bupa (formerly Max Bupa), and ICICI Lombard."
+    question: "Which primary insurance companies is Sneha authorized to represent?",
+    answer: "Sneha is an authorized individual advisor for three of India's most respected underwriters: Star Health Insurance (Health & Senior Care), Life Insurance Corporation of India (LIC - Life & Term), and Tata AIG General Insurance (Car, Two-Wheeler, International Travel & Health)."
   },
   {
-    question: "Can Sneha review my existing health insurance policy?",
-    answer: "Yes! Sneha offers a 100% free Existing Policy Health Check. You can send your policy schedule to Sneha on WhatsApp, and she will review it to see if it has 1% room rent limits, disease sub-limits, or insufficient coverage that could lead to heavy out-of-pocket bills during hospitalization."
+    question: "Can Sneha help review or transfer my existing policies?",
+    answer: "Yes! Sneha provides a 100% free Policy Health Check. You can share your existing health, motor, or life policy schedule to check for hidden sub-limits, ensure your car's No Claim Bonus (NCB) transfers at up to 50% discount, or verify that your family's life coverage is adequate."
   }
 ];
 
 export const TRUST_STATS = [
-  { label: "Insurer Partners", value: "Top 6+", subtext: "Star, HDFC, Care, Niva Bupa..." },
-  { label: "Cashless Network Hospitals", value: "12,000+", subtext: "Personal admission support" },
-  { label: "Client Claim Assistance", value: "100%", subtext: "Direct agent contact 24/7" },
-  { label: "Families Protected", value: "2,500+", subtext: "1-on-1 lifelong relationship" },
+  { label: "Core Insurers", value: "Star • LIC • Tata AIG", subtext: "Official certified agent" },
+  { label: "Insurance Types", value: "Health • Car • Travel • Life", subtext: "Complete family protection" },
+  { label: "Cashless Network", value: "14,000+ Hosp / 7,500+ Garages", subtext: "Direct claim coordination" },
+  { label: "Families Advised", value: "2,500+", subtext: "1-on-1 human advocacy" },
 ];

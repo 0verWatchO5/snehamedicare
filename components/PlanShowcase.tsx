@@ -28,11 +28,11 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
 
   const categories = [
     { id: "all", label: "All Curated Plans" },
-    { id: "family", label: "Family Shield" },
-    { id: "senior", label: "Senior Care (60+)" },
-    { id: "critical", label: "Critical Illness" },
-    { id: "topup", label: "₹1 Cr Super Top-Up" },
-    { id: "maternity", label: "Maternity & Newborn" },
+    { id: "family", label: "Health (Star & Tata)" },
+    { id: "car", label: "Car & Motor (Tata AIG)" },
+    { id: "travel", label: "Travel & Schengen (Tata AIG)" },
+    { id: "life", label: "Life & Term (LIC)" },
+    { id: "senior", label: "Senior Care (Star Health)" },
   ];
 
   const filteredPlans = activeTab === "all"
@@ -47,13 +47,13 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
             Curated Policy Portfolio
           </Badge>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
-            Handpicked Policies from{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-              India's Premier Insurers
+            Curated Policies from{" "}
+            <span className="text-emerald-400">
+              Star Health, LIC & Tata AIG
             </span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg">
-            Our agents screen 80+ market policies to recommend plans with zero room rent penalties, quickest pre-auth times, and comprehensive coverage.
+            Compare official plans across Health, Zero-Dep Car, Schengen Travel, and LIC Life Insurance with personal 1-on-1 claim advocacy.
           </p>
         </div>
 

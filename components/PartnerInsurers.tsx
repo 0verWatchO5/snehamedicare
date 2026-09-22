@@ -11,18 +11,18 @@ export const PartnerInsurers = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold mb-3">
-              <UserCheck className="w-3.5 h-3.5 text-cyan-400" />
-              Certified Individual Agent
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
+              <UserCheck className="w-3.5 h-3.5 text-emerald-400" />
+              Certified Individual Underwriter Agent
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-              Licensed to Advise Policies from{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-                India's Top Insurers
+              Authorized Agent for{" "}
+              <span className="text-emerald-400">
+                Star Health, LIC & Tata AIG
               </span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-2xl">
-              Because I am an independent advisor representing multiple leading companies, I help you select the best features and lowest premiums across insurers at <strong>official company rates with ₹0 advisory markup</strong>.
+              I bring you official company pricing with <strong>₹0 advisory markup</strong>. Whether safeguarding your family's health, your car, international travel, or life security — you get direct 1-on-1 access and personal claim advocacy.
             </p>
           </div>
 
@@ -32,31 +32,44 @@ export const PartnerInsurers = () => {
           </div>
         </div>
 
-        {/* Partner Insurer Cards Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* 3 Core Partner Insurers Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PARTNER_INSURERS.map((partner) => (
             <div
               key={partner.code}
-              className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/50 backdrop-blur-xl transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10 flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 backdrop-blur-xl transition-all duration-200 group hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center font-black text-xs text-cyan-400 mb-3 shadow-inner group-hover:border-cyan-500/40">
-                  {partner.code}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="px-3 py-1 rounded-xl bg-slate-800 border border-slate-700 font-black text-xs text-teal-400">
+                    {partner.code}
+                  </div>
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    {partner.badge}
+                  </span>
                 </div>
-                <h3 className="font-bold text-white text-xs sm:text-sm leading-snug mb-1 group-hover:text-cyan-300 transition-colors">
+
+                <h3 className="font-bold text-white text-lg leading-snug mb-1 group-hover:text-teal-300 transition-colors">
                   {partner.name}
                 </h3>
-                <p className="text-[11px] text-slate-400 leading-tight mb-3">
+                <p className="text-xs text-slate-400 leading-relaxed mb-4">
                   {partner.tagline}
                 </p>
+
+                <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 mb-4">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold mb-1">Coverage Scope</span>
+                  <span className="text-xs text-slate-300 font-medium">{partner.coverageTypes}</span>
+                </div>
               </div>
 
-              <div className="pt-2 border-t border-slate-800/80">
-                <div className="text-[10px] text-emerald-400 font-semibold">
-                  {partner.claimRatio} Claim Ratio
+              <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] text-slate-500 block">Claim Settlement</span>
+                  <span className="text-xs text-emerald-400 font-bold">{partner.claimRatio}</span>
                 </div>
-                <div className="text-[10px] text-slate-500">
-                  {partner.networkHospitals} Hospitals
+                <div className="text-right">
+                  <span className="text-[10px] text-slate-500 block">Network</span>
+                  <span className="text-xs text-slate-300 font-semibold">{partner.networkHospitals}</span>
                 </div>
               </div>
             </div>

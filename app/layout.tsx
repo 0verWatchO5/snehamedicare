@@ -13,29 +13,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sneha Medicare | Certified Individual Health Insurance Agent & Claim Advocate",
+  title: "Sneha Medicare & Insurance | Agent for Star Health, LIC & Tata AIG",
   description:
-    "Sneha is an IRDAI-certified individual health insurance agent representing Star Health, HDFC ERGO, Care, and Niva Bupa. Get 100% unbiased policy comparison and direct 24/7 bedside cashless claim assistance at official insurer rates.",
+    "Sneha is an IRDAI-certified insurance agent representing Star Health, LIC of India, and Tata AIG. Complete insurance coverage including Health, Zero-Dep Car, Schengen Travel, and LIC Life policies with direct claim support at official insurer tariffs.",
   keywords: [
     "Sneha Medicare",
-    "Individual health insurance agent",
-    "Health insurance advisor India",
-    "Personal insurance agent",
+    "Insurance Agent Star Health",
+    "LIC of India Agent",
+    "Tata AIG Car Insurance",
+    "Tata AIG Travel Insurance",
+    "Zero Depreciation Car Insurance",
+    "Schengen Visa Travel Insurance",
+    "Star Health Family Floater",
+    "LIC Term Life Insurance",
+    "Personal insurance agent India",
     "Cashless hospital claims",
-    "Star Health agent",
-    "Care health insurance",
-    "HDFC ERGO health",
-    "Niva Bupa ReAssure",
-    "Family floater insurance",
+    "Cashless garage claims",
     "Section 80D tax saving",
-    "Zero room rent capping"
+    "Section 80C tax saving"
   ],
-  authors: [{ name: "Sneha (Certified Health Insurance Agent)" }],
+  authors: [{ name: "Sneha (Agent: Star Health • LIC • Tata AIG)" }],
   openGraph: {
-    title: "Sneha Medicare | Certified Individual Health Insurance Agent",
+    title: "Sneha Medicare & Insurance | Agent for Star Health, LIC & Tata AIG",
     description:
-      "Compare India's top health insurers with direct, 1-on-1 advice from Sneha. Zero room rent penalties and personal 45-minute bedside claim defense.",
-    siteName: "Sneha Medicare",
+      "All types of insurance including Health, Car (Zero Dep), Travel (Schengen), and Life with 1-on-1 personal claim assistance from Sneha at official insurer rates.",
+    siteName: "Sneha Medicare & Insurance",
     locale: "en_IN",
     type: "website",
   },

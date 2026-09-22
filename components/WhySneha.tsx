@@ -64,16 +64,16 @@ export const WhySneha = () => {
 
           {/* Card 2: 100% Unbiased Multi-Insurer Advice */}
           <BentoGridItem
-            title="100% Unbiased Advice Across Top Insurers"
-            description="I am not an employee of any single insurance company. I compare Star Health, HDFC ERGO, Care, and Niva Bupa side-by-side to recommend what truly fits your budget and medical history."
-            badge="Top 6+ Insurers"
+            title="100% Unbiased Multi-Line Advice"
+            description="I am an independent licensed advisor representing the Big 3: Star Health for specialized medical shields, Tata AIG for zero-dep car and Schengen travel insurance, and LIC of India for life and family security."
+            badge="Star Health • LIC • Tata AIG"
             icon={<Scale className="w-5 h-5" />}
             header={
               <div className="h-28 rounded-xl bg-slate-950/60 border border-slate-800 p-4 flex flex-col justify-center items-center">
                 <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
                   Zero Bias
                 </div>
-                <span className="text-[10px] text-slate-400 mt-1">I represent YOU, not the insurer</span>
+                <span className="text-[10px] text-slate-400 mt-1">Health • Car • Travel • Life Insurance</span>
               </div>
             }
           />

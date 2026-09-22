@@ -16,7 +16,10 @@ import {
   Award,
   Building2,
   Check,
-  UserCheck
+  UserCheck,
+  Car,
+  Plane,
+  HeartHandshake
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -27,40 +30,40 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ onOpenQuote, onOpenTracker }: HeroSectionProps) => {
-  const [selectedProfile, setSelectedProfile] = useState<"self" | "family" | "parents" | "seniors">("family");
+  const [selectedProfile, setSelectedProfile] = useState<"health" | "car" | "travel" | "life">("health");
 
   const profileOptions = [
     {
-      id: "family",
-      label: "Family Floater",
-      icon: Users,
-      desc: "Zero room rent limits & 100% restore benefit from Star or Care Health",
+      id: "health",
+      label: "Health & Family Floater",
+      icon: ShieldCheck,
+      desc: "Zero room rent capping, 100% restore & hospital bedside advocacy",
       startingAt: "₹980/mo",
       cover: "Up to ₹1 Crore"
     },
     {
-      id: "self",
-      label: "Young Individual",
-      icon: User,
-      desc: "Tax-saving plan with cumulative bonus & free yearly full health checkups",
-      startingAt: "₹450/mo",
-      cover: "Up to ₹50 Lakh"
+      id: "car",
+      label: "Car & Motor (Zero Dep)",
+      icon: Car,
+      desc: "Bumper-to-bumper zero dep, 7,500+ cashless garages & 24/7 towing",
+      startingAt: "₹690/mo",
+      cover: "Full IDV Protection"
     },
     {
-      id: "parents",
-      label: "Parents / In-laws",
-      icon: Heart,
-      desc: "Diabetes & BP covered with reduced waiting periods negotiated for you",
-      startingAt: "₹1,450/mo",
-      cover: "Up to ₹25 Lakh"
+      id: "travel",
+      label: "Travel & Schengen Visa",
+      icon: Plane,
+      desc: "Embassy approved overseas medical, baggage loss & trip delay",
+      startingAt: "₹420/trip",
+      cover: "Up to $500,000"
     },
     {
-      id: "seniors",
-      label: "Senior Citizens (60+)",
-      icon: Shield,
-      desc: "No pre-policy tests & direct personal bedside claim coordination",
-      startingAt: "₹1,890/mo",
-      cover: "Up to ₹25 Lakh"
+      id: "life",
+      label: "LIC Pure Term & Life",
+      icon: HeartHandshake,
+      desc: "Govt of India sovereign guarantee with Sec 80C & 10(10D) tax benefits",
+      startingAt: "₹790/mo",
+      cover: "Up to ₹2 Crore"
     }
   ];
 
@@ -74,20 +77,20 @@ export const HeroSection = ({ onOpenQuote, onOpenTracker }: HeroSectionProps) =>
         <div className="inline-flex items-center flex-wrap justify-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-700/80 shadow-sm backdrop-blur-md mb-6">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-semibold">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            IRDAI Certified
+            IRDAI Certified Agent
           </span>
           <span className="text-xs font-medium text-slate-200">
-            Meet Sneha — Health Insurance Agent & Claim Advocate
+            Star Health • LIC of India • Tata AIG
           </span>
           <span className="text-slate-600 hidden sm:inline">•</span>
           <span className="text-xs font-medium text-slate-300 hidden sm:inline-flex items-center gap-1">
-            <Check className="w-3.5 h-3.5 text-emerald-400" /> Direct 1-on-1 Access
+            <Check className="w-3.5 h-3.5 text-emerald-400" /> Health, Car, Travel & Life
           </span>
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl leading-[1.12] mb-6">
-          Honest Health Insurance Advice From An Agent Who{" "}
+        <h1 className="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl leading-[1.12] mb-6">
+          Complete Insurance For Your Health, Car, Travel & Life From An Agent Who{" "}
           <span className="text-emerald-400">
             Actually Answers Your Call.
           </span>
@@ -95,15 +98,21 @@ export const HeroSection = ({ onOpenQuote, onOpenTracker }: HeroSectionProps) =>
 
         {/* Subtitle */}
         <p className="max-w-3xl text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-8">
-          Hi, I am <strong>Sneha</strong>, a licensed independent health insurance advisor. I compare plans across <strong className="text-white font-semibold">Star Health, HDFC ERGO, Care, and Niva Bupa</strong> to find your family the best coverage at official insurer rates — and I personally stand by you during hospital claims.
+          Hi, I am <strong>Sneha</strong>, your licensed advisor representing <strong>Star Health, LIC of India, and Tata AIG</strong>. Whether you need zero room-rent family health cover, zero-dep car insurance, Schengen-compliant travel protection, or guaranteed LIC term security — I compare, issue, and personally stand by your claims.
         </p>
 
         {/* Partner Insurer Chips */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 text-xs text-slate-400">
-          <span className="text-slate-500 font-medium">Licensed Individual Agent for:</span>
-          {["Star Health", "HDFC ERGO", "Care Health", "Niva Bupa", "ICICI Lombard"].map((name) => (
-            <span key={name} className="px-3 py-1 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-200 font-semibold text-[11px]">
-              {name}
+          <span className="text-slate-500 font-medium">Licensed Agent for:</span>
+          {[
+            { name: "Star Health Insurance", tag: "Health Specialist" },
+            { name: "LIC of India", tag: "Life & Sovereign Protection" },
+            { name: "Tata AIG General Insurance", tag: "Car, Travel & Health" },
+          ].map((item) => (
+            <span key={item.name} className="px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 font-semibold text-xs flex items-center gap-1.5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>{item.name}</span>
+              <span className="text-[10px] text-slate-400 font-normal">({item.tag})</span>
             </span>
           ))}
         </div>

@@ -36,19 +36,19 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
   }, []);
 
   const navLinks = [
-    { name: "My Services", href: "#services" },
-    { name: "Top Insurer Plans", href: "#plans" },
+    { name: "Services", href: "#services" },
+    { name: "Insurance Plans", href: "#plans" },
     { name: "Premium Calculator", href: "#calculator" },
-    { name: "Cashless Hospitals", href: "#hospitals" },
-    { name: "Claim Support", href: "#concierge" },
+    { name: "Cashless Network", href: "#hospitals" },
+    { name: "Claim Advocacy", href: "#concierge" },
     { name: "Why Sneha?", href: "#why-sneha" },
     { name: "FAQs", href: "#faqs" },
   ];
 
   return (
-    <>
+    <div className="sticky top-0 z-50 w-full">
       {/* Top Announcement Bar */}
-      <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800 text-xs text-slate-300 py-2 px-4 sticky top-0 z-50">
+      <div className="bg-slate-950 border-b border-slate-800/80 text-xs text-slate-300 py-2 px-4 w-full">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
@@ -64,21 +64,21 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
 
           <div className="hidden md:flex items-center gap-4 text-[11px] text-slate-400">
             <span className="flex items-center gap-1">
-              <UserCheck className="w-3.5 h-3.5 text-cyan-400" />
-              Certified Advisor for: <strong className="text-white">Star Health, HDFC ERGO, Care & Niva Bupa</strong>
+              <UserCheck className="w-3.5 h-3.5 text-teal-400" />
+              Agent for: <strong className="text-white">Star Health • LIC of India • Tata AIG</strong>
             </span>
             <span className="h-3 w-[1px] bg-slate-700" />
-            <span className="text-emerald-300 font-medium">100% Free Consultation • Official Insurer Rates</span>
+            <span className="text-emerald-300 font-medium">Health • Car • Travel • Life • ₹0 Advisory Fee</span>
           </div>
         </div>
       </div>
 
       {/* Main Glass Navbar */}
       <header
-        className={`sticky top-[37px] z-40 transition-all duration-300 ${
+        className={`w-full transition-all duration-300 ${
           scrolled
-            ? "bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl shadow-slate-950/50"
-            : "bg-slate-950/40 backdrop-blur-md border-b border-white/5"
+            ? "bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl shadow-slate-950/50"
+            : "bg-slate-950/80 backdrop-blur-md border-b border-white/5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -98,7 +98,7 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
               </div>
               <span className="text-[10px] tracking-wider uppercase text-emerald-400 font-semibold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                Personal Health Insurance Advisor
+                Health • Car • Travel • Life Insurance
               </span>
             </div>
           </a>
@@ -109,22 +109,22 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 px-3.5 py-2 rounded-lg transition-all"
+                className="text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3.5 py-2 rounded-xl transition-all duration-200"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* CTA Action Buttons */}
+          {/* Right Action CTAs */}
           <div className="hidden sm:flex items-center gap-3">
             <Button
               variant="outline"
               size="sm"
               onClick={onOpenTracker}
-              className="text-xs border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/10"
+              className="text-xs border-slate-700 hover:border-slate-600 hover:bg-slate-800"
             >
-              <FileSearch className="w-3.5 h-3.5 text-cyan-400" />
+              <FileSearch className="w-3.5 h-3.5 text-teal-400" />
               Track Claim
             </Button>
             <Button
@@ -133,7 +133,7 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
               onClick={onOpenQuote}
               className="text-xs px-4"
             >
-              <Sparkles className="w-3.5 h-3.5" />
+              <PhoneCall className="w-3.5 h-3.5" />
               Consult Sneha (Free)
             </Button>
           </div>
@@ -157,7 +157,7 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-slate-900 px-3 py-2.5 rounded-lg transition-colors"
+                  className="text-base font-medium text-slate-200 hover:text-teal-300 hover:bg-slate-900 px-3 py-2.5 rounded-lg transition-colors"
                 >
                   {link.name}
                 </a>
@@ -173,7 +173,7 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
                 }}
                 className="w-full justify-center"
               >
-                <FileSearch className="w-4 h-4 text-cyan-400" />
+                <FileSearch className="w-4 h-4 text-teal-400" />
                 Track Cashless Claim
               </Button>
               <Button
@@ -184,13 +184,13 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
                 }}
                 className="w-full justify-center"
               >
-                <Sparkles className="w-4 h-4" />
+                <PhoneCall className="w-4 h-4" />
                 Consult Sneha Directly
               </Button>
             </div>
           </div>
         )}
       </header>
-    </>
+    </div>
   );
 };

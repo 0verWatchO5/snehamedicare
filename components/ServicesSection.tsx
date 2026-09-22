@@ -44,12 +44,12 @@ export const ServicesSection = ({ onOpenConsultation }: ServicesSectionProps) =>
           </Badge>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
             How I Can Help You as Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+            <span className="text-emerald-400">
               Personal Insurance Advisor
             </span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg">
-            I am Sneha, an independent licensed health insurance agent. Here are the dedicated services I provide to protect your family's health and financial wellbeing at <strong>₹0 advisory fee</strong>.
+            I am Sneha, an authorized agent representing <strong>Star Health, LIC of India, and Tata AIG</strong>. Here are the dedicated services I provide across health, car, travel, and life insurance with <strong>₹0 advisory markup</strong>.
           </p>
         </div>
 
@@ -60,11 +60,11 @@ export const ServicesSection = ({ onOpenConsultation }: ServicesSectionProps) =>
             return (
               <div
                 key={srv.id}
-                className="rounded-3xl p-7 bg-slate-900/50 border border-slate-800/90 backdrop-blur-xl hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between group hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1"
+                className="rounded-3xl p-7 bg-slate-900/50 border border-slate-800/90 backdrop-blur-xl hover:border-slate-700 transition-all duration-200 flex flex-col justify-between group hover:shadow-xl hover:shadow-black/40 hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-105 transition-transform">
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -72,10 +72,10 @@ export const ServicesSection = ({ onOpenConsultation }: ServicesSectionProps) =>
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">
                     {srv.title}
                   </h3>
-                  <p className="text-xs text-cyan-400/90 font-medium mb-3">
+                  <p className="text-xs text-teal-400/90 font-medium mb-3">
                     {srv.tagline}
                   </p>
                   <p className="text-xs text-slate-400 leading-relaxed mb-6">
@@ -102,9 +102,9 @@ export const ServicesSection = ({ onOpenConsultation }: ServicesSectionProps) =>
                     variant="outline"
                     size="sm"
                     onClick={() => onOpenConsultation(srv.title)}
-                    className="w-full text-xs font-bold border-slate-700 hover:border-cyan-500/60 hover:bg-cyan-500/10"
+                    className="w-full text-xs font-bold border-slate-700 hover:border-slate-600 hover:bg-slate-800"
                   >
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                    <PhoneCall className="w-3.5 h-3.5 text-teal-400" />
                     Consult Sneha on This Service
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Button>
@@ -115,34 +115,41 @@ export const ServicesSection = ({ onOpenConsultation }: ServicesSectionProps) =>
         </div>
 
         {/* Free Policy Review Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-cyan-950/40 via-slate-900/80 to-emerald-950/40 border border-cyan-500/30 backdrop-blur-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 backdrop-blur-2xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-300 shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-300 shrink-0">
               <FileSearch className="w-7 h-7" />
             </div>
             <div>
               <h4 className="text-lg font-bold text-white mb-1">
-                Already have a health policy? Let Sneha audit it for free.
+                Already have a health, car, or life policy? Let Sneha audit it for free.
               </h4>
-              <p className="text-xs text-slate-300 max-w-xl">
-                Send me your policy schedule on WhatsApp. I will check for hidden 1% room rent limits, disease sub-limits, and co-payment clauses — with zero obligation to buy anything.
+              <p className="text-xs text-slate-400 max-w-xl">
+                Send your current policy schedule on WhatsApp. I will review it for hidden room-rent caps, zero-dep clauses, or sum insured gaps before your next renewal.
               </p>
             </div>
           </div>
-
-          <div className="flex items-center gap-3 w-full md:w-auto shrink-0">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <a
-              href="https://wa.me/919876543210?text=Hi%20Sneha,%20I%20would%20like%20a%20free%20audit%20of%20my%20existing%20health%20insurance%20policy."
+              href="https://wa.me/919876543210?text=Hi%20Sneha,%20I%20would%20like%20a%20free%20audit%20of%20my%20insurance%20policy."
               target="_blank"
               rel="noreferrer"
-              className="w-full md:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-lg shadow-emerald-600/20"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors shadow-sm"
             >
               <MessageSquare className="w-4 h-4" />
-              WhatsApp My Policy Schedule
+              WhatsApp My Schedule
             </a>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onOpenConsultation("Policy Audit & Portfolio Review")}
+              className="w-full sm:w-auto text-xs font-semibold border-slate-700"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-teal-400" />
+              Book Audit Call
+            </Button>
           </div>
         </div>
-
       </div>
     </section>
   );
