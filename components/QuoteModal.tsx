@@ -227,7 +227,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
         ) : (
           /* Confirmation State */
           <div className="text-center py-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 mx-auto mb-4 shadow-[0_0_25px_rgba(16,185,129,0.3)]">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/60 flex items-center justify-center text-emerald-400 mx-auto mb-4 shadow-md">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 

@@ -63,9 +63,9 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                 activeTab === cat.id
-                  ? "bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold shadow-[0_0_20px_rgba(6,182,212,0.3)] scale-105"
+                  ? "bg-emerald-600 text-white font-semibold shadow-sm"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
               }`}
             >
@@ -81,14 +81,14 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
               key={plan.id}
               className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${
                 plan.popular
-                  ? "bg-gradient-to-b from-slate-900/90 via-slate-900/70 to-slate-950/90 border-cyan-500/60 shadow-[0_0_35px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/30 -translate-y-1"
+                  ? "bg-slate-900/90 border-teal-500/50 ring-1 ring-teal-500/30 shadow-xl shadow-black/50 -translate-y-1"
                   : "bg-slate-900/50 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/80"
               }`}
             >
               {/* Badge */}
               {plan.badge && (
                 <div className="absolute -top-3.5 left-6">
-                  <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 shadow-md">
+                  <span className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-emerald-600 text-white shadow-sm">
                     {plan.badge}
                   </span>
                 </div>

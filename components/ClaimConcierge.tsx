@@ -182,7 +182,7 @@ export const ClaimConcierge = () => {
                   { title: "Admission Cleared", time: "11:38 PM", status: "active", desc: "Patient admitted in Single AC Room" },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-slate-950/90 border border-slate-800 rounded-2xl p-4 flex flex-col items-center text-center">
-                    <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-300 text-xs font-bold mb-2 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+                    <div className="w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/50 flex items-center justify-center text-emerald-400 text-xs font-bold mb-2 shadow-sm">
                       ✓
                     </div>
                     <div className="text-xs font-bold text-white mb-0.5">{item.title}</div>

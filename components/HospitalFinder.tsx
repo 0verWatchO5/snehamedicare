@@ -77,7 +77,7 @@ export const HospitalFinder = ({ onOpenAdmissionModal }: HospitalFinderProps) =>
                   onClick={() => setSelectedCity(city)}
                   className={`px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition-all ${
                     selectedCity === city
-                      ? "bg-cyan-500 text-slate-950 font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                      ? "bg-emerald-600 text-white font-semibold shadow-sm"
                       : "bg-slate-950/60 text-slate-400 hover:text-white border border-slate-800"
                   }`}
                 >
