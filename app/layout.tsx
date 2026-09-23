@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sneha Medicare & Insurance | Agent for Star Health, LIC & Tata AIG",
+  title: "Sneha MediCare | Agent for Star Health, LIC & Tata AIG",
   description:
     "Sneha is an IRDAI-certified insurance agent representing Star Health, LIC of India, and Tata AIG. Complete insurance coverage including Health, Zero-Dep Car, Schengen Travel, and LIC Life policies with direct claim support at official insurer tariffs.",
   keywords: [
-    "Sneha Medicare",
+    "Sneha MediCare",
     "Insurance Agent Star Health",
     "LIC of India Agent",
     "Tata AIG Car Insurance",
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sneha (Agent: Star Health • LIC • Tata AIG)" }],
   openGraph: {
-    title: "Sneha Medicare & Insurance | Agent for Star Health, LIC & Tata AIG",
+    title: "Sneha MediCare | Agent for Star Health, LIC & Tata AIG",
     description:
       "All types of insurance including Health, Car (Zero Dep), Travel (Schengen), and Life with 1-on-1 personal claim assistance from Sneha at official insurer rates.",
-    siteName: "Sneha Medicare & Insurance",
+    siteName: "Sneha MediCare",
     locale: "en_IN",
     type: "website",
   },
@@ -53,7 +53,7 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakarta.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950">
+      <body className="min-h-full flex flex-col bg-[#0c2340] text-sky-200 selection:bg-cyan-500 selection:text-slate-950">
         {children}
       </body>
     </html>

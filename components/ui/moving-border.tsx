@@ -55,7 +55,7 @@ export function ButtonWithBorder({
 
       <div
         className={cn(
-          "relative bg-slate-950/90 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased font-semibold border border-slate-800/80",
+          "relative bg-[#0c2340]/90 backdrop-blur-xl text-cyan-200 flex items-center justify-center w-full h-full text-sm antialiased font-semibold border border-cyan-500/30",
           className
         )}
         style={{

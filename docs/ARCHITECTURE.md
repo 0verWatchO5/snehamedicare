@@ -1,7 +1,7 @@
 # Website Architecture & Public Application Flow
 
 ## 1. Overview
-Sneha Medicare & Insurance Advisory is an IRDAI-certified individual insurance advisory web application. It positions Sneha as an authorized personal insurance agent representing the "Big 3" underwriters:
+Sneha MediCare Advisory is an IRDAI-certified individual insurance advisory web application. It positions Sneha as an authorized personal insurance agent representing the "Big 3" underwriters:
 - **Star Health & Allied Insurance** (Specialized Health & Senior Citizen Mediclaim)
 - **Life Insurance Corporation of India (LIC)** (Sovereign Guaranteed Term Life & Endowment)
 - **Tata AIG General Insurance** (Zero-Depreciation Car & Schengen/Overseas Travel Insurance)
@@ -85,7 +85,7 @@ graph TD
 │   ├── Footer.tsx               # Legal notices, insurer links, copyright
 │   ├── QuoteModal.tsx           # Lead intake dialog with confetti & WhatsApp redirect
 │   └── ui/
-│       ├── badge.tsx            # Badge component (emerald, teal, amber, outline)
+│       ├── badge.tsx            # Badge component (cyan, amber, outline)
 │       ├── button.tsx           # Button component with size and color variants
 │       └── bento-grid.tsx       # BentoGrid and BentoGridItem layout primitives
 └── docs/                        # Comprehensive documentation markdown files

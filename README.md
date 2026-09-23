@@ -1,4 +1,4 @@
-# Sneha Medicare & Insurance Advisory
+# Sneha MediCare Advisory
 
 > **IRDAI Certified Individual Insurance Agent**  
 > Official Agent for **Star Health & Allied Insurance**, **Life Insurance Corporation of India (LIC)**, and **Tata AIG General Insurance**.  
@@ -8,7 +8,7 @@
 
 ## 🌟 Overview
 
-Sneha Medicare & Insurance Advisory is a modern, high-performance web platform built to provide transparent, 1-on-1 personal insurance guidance. Unlike faceless online aggregators, Sneha acts as a dedicated personal advisor who assists families with policy selection, fine-print clause busting, and 45-minute bedside cashless claim assistance at official insurer rates (₹0 extra advisory fee).
+Sneha MediCare Advisory is a modern, high-performance web platform built to provide transparent, 1-on-1 personal insurance guidance. Unlike faceless online aggregators, Sneha acts as a dedicated personal advisor who assists families with policy selection, fine-print clause busting, and 45-minute bedside cashless claim assistance at official insurer rates (₹0 extra advisory fee).
 
 ---
 
@@ -94,4 +94,4 @@ Detailed documentation has been compiled in the `docs/` directory:
 
 ## ⚖️ Legal & Regulatory Disclaimer
 
-Sneha (operating as Sneha Medicare & Insurance Advisory) is an IRDAI-certified, licensed individual insurance agent representing authorized insurers. Insurance is the subject matter of solicitation. All policy terms, conditions, coverage limits, exclusions, premium calculations, and claim settlements are strictly governed by the underwriting criteria of respective licensed insurance companies (Star Health & Allied Insurance Co. Ltd., Life Insurance Corporation of India, and Tata AIG General Insurance Co. Ltd.). All quotes are issued strictly at standard official insurer tariffs with zero agent markups. Tax benefits are subject to provisions under Section 80D and Section 80C of the Income Tax Act, 1961.
+Sneha (operating as Sneha MediCare Advisory) is an IRDAI-certified, licensed individual insurance agent representing authorized insurers. Insurance is the subject matter of solicitation. All policy terms, conditions, coverage limits, exclusions, premium calculations, and claim settlements are strictly governed by the underwriting criteria of respective licensed insurance companies (Star Health & Allied Insurance Co. Ltd., Life Insurance Corporation of India, and Tata AIG General Insurance Co. Ltd.). All quotes are issued strictly at standard official insurer tariffs with zero agent markups. Tax benefits are subject to provisions under Section 80D and Section 80C of the Income Tax Act, 1961.

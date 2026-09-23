@@ -185,16 +185,16 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
     <section id="calculator" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <Badge variant="emerald" className="mb-4">
+          <Badge variant="amber" className="mb-4">
             Interactive Multi-Insurance Calculator
           </Badge>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-cyan-200 tracking-tight mb-4">
             Official Pricing.{" "}
-            <span className="text-emerald-400">
+            <span className="text-gradient-cyan">
               Zero Agent Markup.
             </span>
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
+          <p className="text-sky-200/80 text-base sm:text-lg">
             Calculate exact premiums for Health, Car, Travel, and Life insurance underwritten by Star Health, Tata AIG, and LIC.
           </p>
         </div>
@@ -215,14 +215,14 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                 onClick={() => setCalcType(tab.id as any)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer border ${
                   isSelected
-                    ? "bg-slate-800 border-teal-500/70 text-white shadow-md ring-1 ring-teal-500/30"
-                    : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900"
+                    ? "bg-[#183d6b] border-cyan-400/80 text-cyan-200 shadow-md ring-1 ring-cyan-400/50"
+                    : "bg-[#0e2a4d]/70 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200 hover:bg-[#132f54]"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isSelected ? "text-teal-400" : "text-slate-500"}`} />
+                <Icon className={`w-4 h-4 ${isSelected ? "text-cyan-400" : "text-sky-400/60"}`} />
                 <div className="text-left">
                   <div>{tab.label}</div>
-                  <span className="text-[10px] text-slate-500 font-normal block">{tab.underwriter}</span>
+                  <span className="text-[10px] text-cyan-300/70 font-normal block">{tab.underwriter}</span>
                 </div>
               </button>
             );
@@ -231,18 +231,18 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Controls Column */}
-          <div className="lg:col-span-7 bg-slate-900/70 border border-slate-800/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-xl space-y-7">
+          <div className="lg:col-span-7 bg-[#0e2a4d]/85 border border-cyan-500/25 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-xl space-y-7">
             
             {/* 1. HEALTH CALCULATOR CONTROLS */}
             {calcType === "health" && (
               <>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-teal-400" />
+                      <Users className="w-4 h-4 text-cyan-400" />
                       1. Select Members to Cover
                     </span>
-                    <span className="text-xs text-slate-400 font-normal">Star Health / Tata AIG</span>
+                    <span className="text-xs text-sky-300/70 font-normal">Star Health / Tata AIG</span>
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     {memberOptions.map((opt) => (
@@ -251,12 +251,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setMemberType(opt.id)}
                         className={`p-3 rounded-xl border text-xs font-semibold transition-all text-left flex flex-col justify-between ${
                           memberType === opt.id
-                            ? "bg-teal-500/15 border-teal-500/80 text-teal-200 shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
+                            ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200 hover:border-cyan-500/40"
                         }`}
                       >
                         <span>{opt.label.split("(")[0]}</span>
-                        <span className="text-[10px] text-slate-500 font-normal mt-1">
+                        <span className="text-[10px] text-sky-300/60 font-normal mt-1">
                           {opt.label.includes("(") ? `(${opt.label.split("(")[1]}` : ""}
                         </span>
                       </button>
@@ -266,12 +266,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
 
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="text-sm font-semibold text-slate-200 flex items-center gap-2">
-                      <HeartHandshake className="w-4 h-4 text-teal-400" />
+                    <label className="text-sm font-semibold text-sky-100 flex items-center gap-2">
+                      <HeartHandshake className="w-4 h-4 text-cyan-400" />
                       2. Age of Eldest Member:{" "}
-                      <span className="text-teal-400 font-bold text-lg">{age} years</span>
+                      <span className="text-cyan-300 font-bold text-lg">{age} years</span>
                     </label>
-                    <span className="text-xs text-slate-400">18 - 75 Yrs</span>
+                    <span className="text-xs text-sky-300/70">18 - 75 Yrs</span>
                   </div>
                   <input
                     type="range"
@@ -279,17 +279,17 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                     max="75"
                     value={age}
                     onChange={(e) => setAge(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500 focus:outline-none"
+                    className="w-full h-2 bg-[#122e54] rounded-lg appearance-none cursor-pointer accent-cyan-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                      <ShieldCheck className="w-4 h-4 text-cyan-400" />
                       3. Choose Sum Insured (Coverage Amount)
                     </span>
-                    <span className="text-xs text-emerald-400 font-medium">100% Unlimited Restores</span>
+                    <span className="text-xs text-cyan-300 font-medium">100% Unlimited Restores</span>
                   </label>
                   <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                     {sumInsuredTiers.map((tier, idx) => (
@@ -298,8 +298,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setSumInsuredIndex(idx)}
                         className={`py-3 px-2 rounded-xl border text-center transition-all ${
                           sumInsuredIndex === idx
-                            ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-200 font-bold shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 font-medium hover:text-white hover:border-slate-700"
+                            ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 font-bold shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 font-medium hover:text-cyan-200 hover:border-cyan-500/40"
                         }`}
                       >
                         <div className="text-xs">{tier.label}</div>
@@ -309,7 +309,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center gap-2">
                     <TrendingDown className="w-4 h-4 text-amber-400" />
                     4. Policy Tenure (Multi-Year Discount)
                   </label>
@@ -324,12 +324,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setTenure(t.yr)}
                         className={`p-3 rounded-xl border text-center transition-all ${
                           tenure === t.yr
-                            ? "bg-amber-500/15 border-amber-500/80 text-amber-200 font-bold shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-amber-500/20 border-amber-400/80 text-amber-200 font-bold shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
                         <div className="text-xs font-bold">{t.label}</div>
-                        <span className="text-[10px] text-amber-400/90 font-medium">{t.badge}</span>
+                        <span className="text-[10px] text-amber-300/90 font-medium">{t.badge}</span>
                       </button>
                     ))}
                   </div>
@@ -341,12 +341,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
             {calcType === "car" && (
               <>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <Car className="w-4 h-4 text-teal-400" />
+                      <Car className="w-4 h-4 text-cyan-400" />
                       1. Select Vehicle Segment & Approximate Value (IDV)
                     </span>
-                    <span className="text-xs text-slate-400 font-normal">Tata AIG Auto Secure</span>
+                    <span className="text-xs text-sky-300/70 font-normal">Tata AIG Auto Secure</span>
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {carValueTiers.map((tier, idx) => (
@@ -355,20 +355,20 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setCarValueIndex(idx)}
                         className={`p-3.5 rounded-xl border text-left transition-all ${
                           carValueIndex === idx
-                            ? "bg-teal-500/15 border-teal-500/80 text-white shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
-                        <div className="text-sm font-bold text-white">{tier.label}</div>
-                        <div className="text-[11px] text-slate-400 mt-0.5">{tier.sub}</div>
+                        <div className="text-sm font-bold text-cyan-200">{tier.label}</div>
+                        <div className="text-[11px] text-sky-300/70 mt-0.5">{tier.sub}</div>
                       </button>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-cyan-400" />
                     2. Bumper-to-Bumper Zero Depreciation Add-on
                   </label>
                   <div className="grid grid-cols-2 gap-3">
@@ -376,36 +376,36 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       onClick={() => setZeroDep(true)}
                       className={`p-3.5 rounded-xl border text-left transition-all ${
                         zeroDep
-                          ? "bg-emerald-500/15 border-emerald-500/80 text-white shadow-sm"
-                          : "bg-slate-950/60 border-slate-800 text-slate-400"
+                          ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
+                          : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
                       }`}
                     >
-                      <div className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                      <div className="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5" /> Include Zero-Dep (Recommended)
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">100% replacement cost for plastic, fiber & metal parts</div>
+                      <div className="text-[11px] text-sky-200/70 mt-1">100% replacement cost for plastic, fiber & metal parts</div>
                     </button>
                     <button
                       onClick={() => setZeroDep(false)}
                       className={`p-3.5 rounded-xl border text-left transition-all ${
                         !zeroDep
-                          ? "bg-slate-800 border-slate-700 text-white shadow-sm"
-                          : "bg-slate-950/60 border-slate-800 text-slate-400"
+                          ? "bg-[#183d6b] border-cyan-500/60 text-cyan-200 shadow-sm"
+                          : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
                       }`}
                     >
-                      <div className="text-xs font-bold text-slate-300">Standard Comprehensive</div>
-                      <div className="text-[11px] text-slate-500 mt-1">Includes standard depreciation deductions</div>
+                      <div className="text-xs font-bold text-sky-200">Standard Comprehensive</div>
+                      <div className="text-[11px] text-sky-300/60 mt-1">Includes standard depreciation deductions</div>
                     </button>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
                       <TrendingDown className="w-4 h-4 text-amber-400" />
                       3. Existing No Claim Bonus (NCB Transfer)
                     </span>
-                    <span className="text-xs text-amber-400 font-semibold">{ncbDiscount}% Discount Applied</span>
+                    <span className="text-xs text-amber-300 font-semibold">{ncbDiscount}% Discount Applied</span>
                   </label>
                   <div className="grid grid-cols-4 gap-2.5">
                     {[0, 20, 35, 50].map((ncb) => (
@@ -414,8 +414,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setNcbDiscount(ncb)}
                         className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
                           ncbDiscount === ncb
-                            ? "bg-amber-500/15 border-amber-500/80 text-amber-300 shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-amber-500/20 border-amber-400/80 text-amber-200 shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
                         {ncb}% NCB
@@ -430,12 +430,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
             {calcType === "travel" && (
               <>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <Plane className="w-4 h-4 text-teal-400" />
+                      <Plane className="w-4 h-4 text-cyan-400" />
                       1. Destination & Medical Visa Compliance
                     </span>
-                    <span className="text-xs text-slate-400 font-normal">Tata AIG Travel Guard</span>
+                    <span className="text-xs text-sky-300/70 font-normal">Tata AIG Travel Guard</span>
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {travelDestinations.map((dest) => (
@@ -444,12 +444,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setTravelDest(dest.id)}
                         className={`p-3.5 rounded-xl border text-left transition-all ${
                           travelDest === dest.id
-                            ? "bg-teal-500/15 border-teal-500/80 text-white shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
-                        <div className="text-xs font-bold text-white">{dest.label}</div>
-                        <div className="text-[11px] text-teal-300/80 mt-0.5">Emergency Cover: {dest.currency}</div>
+                        <div className="text-xs font-bold text-cyan-200">{dest.label}</div>
+                        <div className="text-[11px] text-cyan-300/80 mt-0.5">Emergency Cover: {dest.currency}</div>
                       </button>
                     ))}
                   </div>
@@ -457,11 +457,11 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
 
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="text-sm font-semibold text-slate-200 flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-emerald-400" />
-                      2. Trip Duration: <span className="text-emerald-400 font-bold text-lg">{travelDays} Days</span>
+                    <label className="text-sm font-semibold text-sky-100 flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-cyan-400" />
+                      2. Trip Duration: <span className="text-cyan-300 font-bold text-lg">{travelDays} Days</span>
                     </label>
-                    <span className="text-xs text-slate-400">Up to 90 days</span>
+                    <span className="text-xs text-sky-300/70">Up to 90 days</span>
                   </div>
                   <input
                     type="range"
@@ -469,12 +469,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                     max="90"
                     value={travelDays}
                     onChange={(e) => setTravelDays(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500 focus:outline-none"
+                    className="w-full h-2 bg-[#122e54] rounded-lg appearance-none cursor-pointer accent-cyan-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center gap-2">
                     <Users className="w-4 h-4 text-cyan-400" />
                     3. Number of Travelers
                   </label>
@@ -485,8 +485,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setTravelersCount(count)}
                         className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
                           travelersCount === count
-                            ? "bg-teal-500/15 border-teal-500/80 text-teal-300 shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
                         {count} {count > 1 ? "Travelers" : "Traveler"}
@@ -501,12 +501,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
             {calcType === "life" && (
               <>
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-teal-400" />
+                      <Shield className="w-4 h-4 text-cyan-400" />
                       1. Select Term Life Cover (Sum Assured)
                     </span>
-                    <span className="text-xs text-emerald-400 font-semibold">100% Sovereign Guarantee</span>
+                    <span className="text-xs text-amber-300 font-semibold">100% Sovereign Guarantee</span>
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     {lifeSumTiers.map((tier, idx) => (
@@ -515,8 +515,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setLifeSumIndex(idx)}
                         className={`py-3 px-2 rounded-xl border text-center transition-all ${
                           lifeSumIndex === idx
-                            ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-200 font-bold shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 font-bold shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
                         <div className="text-xs">{tier.label}</div>
@@ -527,11 +527,11 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
 
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="text-sm font-semibold text-slate-200 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-teal-400" />
-                      2. Entry Age: <span className="text-teal-400 font-bold text-lg">{lifeAge} years</span>
+                    <label className="text-sm font-semibold text-sky-100 flex items-center gap-2">
+                      <Users className="w-4 h-4 text-cyan-400" />
+                      2. Entry Age: <span className="text-cyan-300 font-bold text-lg">{lifeAge} years</span>
                     </label>
-                    <span className="text-xs text-slate-400">18 - 60 Yrs</span>
+                    <span className="text-xs text-sky-300/70">18 - 60 Yrs</span>
                   </div>
                   <input
                     type="range"
@@ -539,12 +539,12 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                     max="60"
                     value={lifeAge}
                     onChange={(e) => setLifeAge(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500 focus:outline-none"
+                    className="w-full h-2 bg-[#122e54] rounded-lg appearance-none cursor-pointer accent-cyan-400 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                  <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center gap-2">
                     <Clock className="w-4 h-4 text-amber-400" />
                     3. Policy Coverage Term (Years)
                   </label>
@@ -555,8 +555,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                         onClick={() => setLifeTerm(t)}
                         className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
                           lifeTerm === t
-                            ? "bg-amber-500/15 border-amber-500/80 text-amber-300 shadow-sm"
-                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white"
+                            ? "bg-amber-500/20 border-amber-400/80 text-amber-200 shadow-sm"
+                            : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
                         }`}
                       >
                         {t} Years Protection
@@ -570,23 +570,23 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
           </div>
 
           {/* Premium Breakdown & Result Card */}
-          <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-xl relative overflow-hidden">
-            <div className="flex items-center justify-between pb-5 border-b border-slate-800">
+          <div className="lg:col-span-5 bg-[#0e2a4d]/95 border border-cyan-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-cyan-950/50 relative overflow-hidden">
+            <div className="flex items-center justify-between pb-5 border-b border-cyan-900/40">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-cyan-300">
                   {calcType === "health" && "Star Health & Tata AIG"}
                   {calcType === "car" && "Tata AIG Auto Secure"}
                   {calcType === "travel" && "Tata AIG Travel Guard"}
                   {calcType === "life" && "LIC of India Term Plan"}
                 </span>
-                <div className="text-sm text-slate-300 font-medium mt-0.5">
+                <div className="text-sm text-sky-200/90 font-medium mt-0.5">
                   {calcType === "health" && `${currentMember.label.split("(")[0]} • Age ${age}`}
                   {calcType === "car" && `${currentCar.label} • ${zeroDep ? "Zero Dep" : "Comprehensive"}`}
                   {calcType === "travel" && `${currentDest.label} • ${travelDays} Days`}
                   {calcType === "life" && `LIC Tech Term • Age ${lifeAge} • ${lifeTerm} Yrs`}
                 </div>
               </div>
-              <Badge variant="emerald">
+              <Badge variant="amber">
                 {calcType === "health" && `${currentTier.label} Cover`}
                 {calcType === "car" && "Instant Cashless"}
                 {calcType === "travel" && `${currentDest.currency}`}
@@ -598,16 +598,16 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
             <div className="py-6 space-y-4">
               <div className="flex items-baseline justify-between">
                 <div>
-                  <div className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+                  <div className="text-4xl sm:text-5xl font-black text-cyan-200 tracking-tight">
                     {calcType === "health" && `₹${healthMonthly.toLocaleString()}`}
                     {calcType === "car" && `₹${carAnnual.toLocaleString()}`}
                     {calcType === "travel" && `₹${travelTotal.toLocaleString()}`}
                     {calcType === "life" && `₹${lifeMonthly.toLocaleString()}`}
-                    <span className="text-sm font-medium text-slate-400">
+                    <span className="text-sm font-medium text-sky-300/70">
                       {calcType === "health" || calcType === "life" ? " /month" : " total"}
                     </span>
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">
+                  <div className="text-xs text-sky-300/70 mt-1">
                     {calcType === "health" && `Billed as ₹${healthAnnual.toLocaleString()} for ${tenure} yr(s) incl. GST`}
                     {calcType === "car" && `Annual premium with ${ncbDiscount}% NCB discount & 24/7 roadside assistance`}
                     {calcType === "travel" && `Total policy premium for ${travelersCount} traveler(s) for ${travelDays} days`}
@@ -618,19 +618,19 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
 
               {/* Tax Benefit Box for Health & Life */}
               {(calcType === "health" || calcType === "life") && (
-                <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center justify-between">
+                <div className="p-4 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-300 flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 font-bold text-xs">
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/25 flex items-center justify-center text-amber-300 font-bold text-xs">
                       {calcType === "health" ? "80D" : "80C"}
                     </div>
                     <div>
                       <div className="text-xs font-bold">
                         {calcType === "health" ? "Estimated Sec 80D Tax Saved" : "Section 80C Tax Exemption"}
                       </div>
-                      <div className="text-[11px] text-emerald-400/80">Reduces your net annual tax outgo</div>
+                      <div className="text-[11px] text-amber-300/80">Reduces your net annual tax outgo</div>
                     </div>
                   </div>
-                  <div className="text-right font-black text-base text-emerald-300">
+                  <div className="text-right font-black text-base text-amber-300">
                     ₹{(calcType === "health" ? healthTaxSaved : lifeTaxSaved).toLocaleString()}
                   </div>
                 </div>
@@ -638,8 +638,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
             </div>
 
             {/* Inclusions */}
-            <div className="pt-4 border-t border-slate-800 space-y-2 mb-7">
-              <div className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+            <div className="pt-4 border-t border-cyan-900/40 space-y-2 mb-7">
+              <div className="text-xs font-semibold text-sky-200 uppercase tracking-wider mb-2">
                 Guaranteed Inclusions
               </div>
               {(calcType === "health"
@@ -670,8 +670,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                     "Personal claim settlement advocacy by Sneha"
                   ]
               ).map((benefit, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs text-slate-300">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <div key={i} className="flex items-center gap-2 text-xs text-sky-200">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                   <span>{benefit}</span>
                 </div>
               ))}
@@ -689,8 +689,8 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
               <ArrowRight className="w-4 h-4" />
             </Button>
 
-            <div className="text-center mt-3 text-[11px] text-slate-500 flex items-center justify-center gap-1">
-              <Info className="w-3 h-3 text-teal-400" />
+            <div className="text-center mt-3 text-[11px] text-sky-300/60 flex items-center justify-center gap-1">
+              <Info className="w-3 h-3 text-cyan-400" />
               Official company rates. Zero spam, 100% confidential.
             </div>
           </div>
