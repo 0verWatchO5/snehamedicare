@@ -104,7 +104,7 @@ When any quote or consultation CTA is triggered, the public lead capture modal (
 - If MongoDB Atlas is in process of IP whitelisting or temporarily unreachable, the endpoint handles the error gracefully without throwing a 500 error to the client.
 
 ### Step 3: Instant WhatsApp Hand-off Link
-- The API creates a pre-encoded direct WhatsApp message for Sneha's phone (`+91 98765 43210`):
+- The API creates a pre-encoded direct WhatsApp message for Sneha's phone (`+91 7400319725`):
 ```
 *New Insurance Inquiry (Website)*
 • *Name:* Ananya Sharma

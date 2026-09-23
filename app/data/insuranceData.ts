@@ -311,7 +311,7 @@ export const INSURANCE_PLANS: InsurancePlan[] = [
     }
   },
   {
-    id: "tata-aig-medicare-premier",
+    id: "tata-aig-MediCare-premier",
     name: "Tata AIG MediCare Premier & Super Top-Up",
     underwriter: "Tata AIG General Insurance",
     tagline: "Global medical treatment, OPD consultations, and maternity in a single high-tier plan.",

@@ -57,10 +57,10 @@ export async function POST(req: Request) {
       insuranceType === "car"
         ? "Car (Zero-Dep)"
         : insuranceType === "travel"
-        ? "International Travel (Schengen)"
-        : insuranceType === "life"
-        ? "LIC Term Life"
-        : "Health Insurance";
+          ? "International Travel (Schengen)"
+          : insuranceType === "life"
+            ? "LIC Term Life"
+            : "Health Insurance";
 
     const waText = encodeURIComponent(
       `*New Insurance Inquiry (Website)*\n` +
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       `• *Existing Medical History:* ${hasPED === "yes" ? "Yes (PED Declared)" : "No"}`
     );
 
-    const waUrl = `https://wa.me/919876543210?text=${waText}`;
+    const waUrl = `https://wa.me/917400319725?text=${waText}`;
 
     return NextResponse.json(
       {

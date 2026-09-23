@@ -1,6 +1,6 @@
 # Public UI Components Documentation
 
-This document covers all public front-facing components of Sneha Medicare & Insurance Advisory.
+This document covers all public front-facing components of Sneha MediCare Advisory.
 
 ---
 
@@ -12,9 +12,9 @@ The primary global header. Features a **unified sticky container** that combines
 ### Key Elements
 - **Top Announcement Bar**:
   - Highlights agency credentials: `"Agent for: Star Health • LIC of India • Tata AIG | Health • Car • Travel • Life"`.
-  - Direct WhatsApp link: `+91 98765 43210` with live online indicator.
+  - Direct WhatsApp link: `+91 7400319725` with live online indicator.
 - **Main Nav Header**:
-  - Logo and brand identity: "Sneha Medicare & Insurance".
+  - Logo and brand identity: "Sneha MediCare".
   - Jump links: Plans (`#plans`), Calculator (`#calculator`), Services (`#services`), Hospitals (`#hospitals`), Claim Help (`#concierge`), Why Sneha (`#why-sneha`), FAQs (`#faqs`).
   - Action buttons: "Free Claim Concierge" (triggers smooth scroll to tracker) and "Lock Official Quote" (opens `QuoteModal`).
   - Mobile responsive drawer with animated hamburger toggle.
@@ -28,7 +28,7 @@ The focal entry point establishing trust, professional agency credentials, and i
 
 ### Key Elements
 - **IRDAI Credential Pill**:
-  - Calm emerald and slate pill badge: `"IRDAI Certified Agent • Star Health • LIC of India • Tata AIG • Health, Car, Travel & Life"`.
+  - Sovereign gold and sapphire pill badge: `"IRDAI Certified Agent • Star Health • LIC of India • Tata AIG • Health, Car, Travel & Life"`.
   - Zero neon glow or distracting AI effects.
 - **Headline & Subtitle**:
   - *"Complete Insurance For Your Health, Car, Travel & Life From An Agent Who Actually Answers Your Call."*
@@ -106,7 +106,7 @@ An interactive, 4-in-1 calculator allowing visitors to estimate official premium
 ### Purpose
 Curated policy cards with interactive category tabs:
 - **All Plans**
-- **Health & Mediclaim** (Star Health Comprehensive Floater, Tata AIG Medicare)
+- **Health & Mediclaim** (Star Health Comprehensive Floater, Tata AIG MediCare)
 - **Car & Motor (Zero Dep)** (Tata AIG Auto Secure)
 - **Travel & Schengen** (Tata AIG Travel Guard)
 - **Life & Term Security** (LIC Tech Term & Jeevan Amar)

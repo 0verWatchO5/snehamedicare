@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060d17;
-  --foreground: #f8fafc;
+  --background: #0c2340;
+  --foreground: #bae6fd;
   --primary: #0284c7;
-  --primary-foreground: #ffffff;
-  --emerald-accent: #10b981;
+  --primary-foreground: #02172b;
+  --gold-accent: #f59e0b;
+  --amber-accent: #f59e0b;
   --cyan-accent: #06b6d4;
-  --card: rgba(15, 23, 42, 0.7);
-  --card-border: rgba(255, 255, 255, 0.08);
+  --card: rgba(18, 44, 78, 0.75);
+  --card-border: rgba(56, 189, 248, 0.22);
 }
 
 @theme inline {
@@ -31,13 +32,13 @@ body {
   min-height: 100vh;
 }
 
-/* Glassmorphism utilities */
+/* Glassmorphism utilities with luminous sapphire tint */
 .glass-card {
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(18, 44, 78, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 20px 45px -15px rgba(2, 14, 33, 0.6);
 }
 
 .glass-card-hover {
@@ -46,20 +47,20 @@ body {
 
 .glass-card-hover:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 22px 40px -10px rgba(6, 182, 212, 0.25);
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(30, 64, 110, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.28);
 }
 
-/* Subtle atmospheric backdrop without neon flares */
+/* Vibrant atmospheric backdrop without pitch darkness */
 .radial-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(14, 116, 144, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.18) 0%, rgba(14, 116, 144, 0.08) 40%, rgba(12, 35, 64, 0) 70%);
 }
 
 .hero-gradient {
@@ -67,7 +68,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
+  background: linear-gradient(135deg, #f0f9ff 0%, #7dd3fc 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -78,22 +79,28 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Custom modern scrollbar */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fde047 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom modern scrollbar with sapphire & teal tones */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090e17;
+  background: #0a1b32;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #1e3a63;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #0284c7;
 }
 
 /* Animated shine effect */
@@ -110,3 +117,4 @@ body {
   animation: shimmer 3s linear infinite;
   background-size: 200% 100%;
 }
+

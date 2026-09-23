@@ -2,19 +2,19 @@
 
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
-import { 
-  X, 
-  Sparkles, 
-  CheckCircle2, 
-  PhoneCall, 
-  ShieldCheck, 
-  MessageSquare, 
-  User, 
-  Phone, 
-  MapPin, 
-  Shield, 
+import {
+  X,
+  Sparkles,
+  CheckCircle2,
+  PhoneCall,
+  ShieldCheck,
+  MessageSquare,
+  User,
+  Phone,
+  MapPin,
+  Shield,
   Clock,
-  UserCheck 
+  UserCheck
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -108,12 +108,12 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061528]/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-[#0e2a4d] border border-cyan-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-cyan-950/60 overflow-hidden max-h-[92vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={handleReset}
-          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#132f54] hover:bg-[#183d6b] text-sky-300 hover:text-cyan-200 flex items-center justify-center transition-colors cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>
@@ -121,30 +121,30 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
         {!submitted ? (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Badge variant="emerald">
+              <Badge variant="amber">
                 <UserCheck className="w-3 h-3 mr-1" />
                 Direct Access to Sneha
               </Badge>
-              <span className="text-[11px] text-slate-400">100% Free • ₹0 Advisory Fee</span>
+              <span className="text-[11px] text-sky-300/70">100% Free • ₹0 Advisory Fee</span>
             </div>
 
-            <h3 className="text-2xl font-black text-white mb-1 tracking-tight">
+            <h3 className="text-2xl font-black text-cyan-200 mb-1 tracking-tight">
               Compare Star Health, LIC & Tata AIG
             </h3>
-            <p className="text-xs text-slate-400 mb-6">
+            <p className="text-xs text-sky-200/80 mb-6">
               Share your requirements and I will personally compare official policies across Star Health, LIC, and Tata AIG to find the best plan for you.
             </p>
 
             {prefill && (
-              <div className="mb-6 p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-xs text-slate-300 flex items-center justify-between">
+              <div className="mb-6 p-3.5 rounded-2xl bg-[#0b213c]/90 border border-cyan-900/40 text-xs text-sky-200 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] text-teal-400 uppercase font-bold block">Selected Plan</span>
-                  <span className="font-bold text-white">{prefill.planName || prefill.members}</span>
+                  <span className="text-[10px] text-cyan-300 uppercase font-bold block">Selected Plan</span>
+                  <span className="font-bold text-cyan-200">{prefill.planName || prefill.members}</span>
                 </div>
                 {prefill.monthlyPremium && (
                   <div className="text-right">
-                    <span className="text-[10px] text-slate-400 block">Est. Premium</span>
-                    <span className="font-black text-emerald-400 text-sm">₹{prefill.monthlyPremium.toLocaleString()}/mo</span>
+                    <span className="text-[10px] text-sky-300/70 block">Est. Premium</span>
+                    <span className="font-black text-cyan-300 text-sm">₹{prefill.monthlyPremium.toLocaleString()}/mo</span>
                   </div>
                 )}
               </div>
@@ -153,13 +153,13 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Insurance Type Selector */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-teal-400" /> Type of Insurance
+                <label className="block text-xs font-semibold text-sky-200 mb-1.5 flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" /> Type of Insurance
                 </label>
                 <select
                   value={insuranceType}
                   onChange={(e) => setInsuranceType(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
+                  className="w-full px-3 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 focus:outline-none focus:border-cyan-400"
                 >
                   <option value="health">Health Insurance (Star Health / Tata AIG)</option>
                   <option value="car">Car & Motor Insurance (Tata AIG Zero-Dep)</option>
@@ -172,8 +172,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
 
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-teal-400" /> Full Name
+                <label className="block text-xs font-semibold text-sky-200 mb-1.5 flex items-center gap-1.5">
+                  <User className="w-3.5 h-3.5 text-cyan-400" /> Full Name
                 </label>
                 <input
                   type="text"
@@ -181,14 +181,14 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g., Rajesh Sharma"
-                  className="w-full px-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-teal-500"
+                  className="w-full px-4 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 placeholder:text-sky-300/50 focus:outline-none focus:border-cyan-400"
                 />
               </div>
 
               {/* Mobile Number */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-teal-400" /> Mobile Number (for quote comparison & WhatsApp)
+                <label className="block text-xs font-semibold text-sky-200 mb-1.5 flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-cyan-400" /> Mobile Number (for quote comparison & WhatsApp)
                 </label>
                 <input
                   type="tel"
@@ -196,21 +196,21 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                   pattern="[0-9]{10}"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
-                  placeholder="10-digit mobile number (e.g. 9876543210)"
-                  className="w-full px-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-teal-500"
+                  placeholder="10-digit mobile number (e.g. 7400319725)"
+                  className="w-full px-4 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 placeholder:text-sky-300/50 focus:outline-none focus:border-cyan-400"
                 />
               </div>
 
               {/* City & Sum Insured */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-teal-400" /> City
+                  <label className="block text-xs font-semibold text-sky-200 mb-1.5 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-cyan-400" /> City
                   </label>
                   <select
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
+                    className="w-full px-3 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 focus:outline-none focus:border-cyan-400"
                   >
                     <option value="Mumbai">Mumbai</option>
                     <option value="Bangalore">Bangalore</option>
@@ -224,13 +224,13 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                    <Shield className="w-3.5 h-3.5 text-teal-400" /> Desired Cover / Value
+                  <label className="block text-xs font-semibold text-sky-200 mb-1.5 flex items-center gap-1.5">
+                    <Shield className="w-3.5 h-3.5 text-cyan-400" /> Desired Cover / Value
                   </label>
                   <select
                     value={sumInsured}
                     onChange={(e) => setSumInsured(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
+                    className="w-full px-3 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 focus:outline-none focus:border-cyan-400"
                   >
                     <option value="₹5 Lakh">₹5 Lakh</option>
                     <option value="₹10 Lakh">₹10 Lakh</option>
@@ -245,29 +245,27 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
 
               {/* Pre-Existing Condition Question */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-sky-200 mb-1.5">
                   Does anyone have pre-existing conditions? (BP, Diabetes, Thyroid, Asthma)
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setHasPED("no")}
-                    className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${
-                      hasPED === "no"
-                        ? "bg-emerald-500/20 border-emerald-500 text-emerald-300"
-                        : "bg-slate-950/60 border-slate-800 text-slate-400"
-                    }`}
+                    className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${hasPED === "no"
+                        ? "bg-cyan-500/25 border-cyan-400 text-cyan-300"
+                        : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
+                      }`}
                   >
                     No, Healthy
                   </button>
                   <button
                     type="button"
                     onClick={() => setHasPED("yes")}
-                    className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${
-                      hasPED === "yes"
-                        ? "bg-amber-500/20 border-amber-500 text-amber-300"
-                        : "bg-slate-950/60 border-slate-800 text-slate-400"
-                    }`}
+                    className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${hasPED === "yes"
+                        ? "bg-amber-500/25 border-amber-400 text-amber-300"
+                        : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
+                      }`}
                   >
                     Yes, Pre-Existing
                   </button>
@@ -276,7 +274,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
 
               {/* Error Message */}
               {errorMsg && (
-                <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs mt-3 text-center">
+                <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs mt-3 text-center">
                   {errorMsg}
                 </div>
               )}
@@ -287,11 +285,11 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                 size="lg"
                 type="submit"
                 disabled={loading}
-                className="w-full font-bold text-xs mt-4 shadow-sm"
+                className="w-full font-bold text-xs mt-4 shadow-md shadow-cyan-950/40"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
-                    <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span className="w-3.5 h-3.5 border-2 border-cyan-200/30 border-t-cyan-200 rounded-full animate-spin" />
                     Locking Your Official Quote in Database...
                   </span>
                 ) : (
@@ -302,8 +300,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                 )}
               </Button>
 
-              <div className="flex items-center justify-center gap-2 text-[10px] text-slate-500 pt-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="flex items-center justify-center gap-2 text-[10px] text-sky-300/60 pt-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Zero Spam • Your Number is Only Seen by Sneha</span>
               </div>
             </form>
@@ -311,35 +309,35 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
         ) : (
           /* Confirmation State */
           <div className="text-center py-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/60 flex items-center justify-center text-emerald-400 mx-auto mb-4 shadow-md">
+            <div className="w-16 h-16 rounded-full bg-cyan-500/20 border border-cyan-500/60 flex items-center justify-center text-cyan-300 mx-auto mb-4 shadow-md">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
-            <h3 className="text-2xl font-black text-white mb-2">
+            <h3 className="text-2xl font-black text-cyan-200 mb-2">
               Thank You, {name}!
             </h3>
-            <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed mb-6">
+            <p className="text-xs text-sky-200/80 max-w-sm mx-auto leading-relaxed mb-6">
               Your inquiry has been successfully registered. Sneha will personally evaluate official quotes across Star Health, LIC, and Tata AIG with zero agent markups.
             </p>
 
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 text-xs text-slate-300 space-y-2 mb-6 text-left">
+            <div className="p-4 rounded-2xl bg-[#0b213c]/90 border border-cyan-900/40 text-xs text-sky-200 space-y-2 mb-6 text-left">
               {leadRefId && (
-                <div className="flex justify-between border-b border-slate-800 pb-2">
-                  <span className="text-slate-500">Inquiry Ref:</span>
-                  <strong className="text-emerald-400 font-mono">#{leadRefId.slice(-6).toUpperCase()}</strong>
+                <div className="flex justify-between border-b border-cyan-900/40 pb-2">
+                  <span className="text-sky-300/70">Inquiry Ref:</span>
+                  <strong className="text-cyan-300 font-mono">#{leadRefId.slice(-6).toUpperCase()}</strong>
                 </div>
               )}
               <div className="flex justify-between">
-                <span className="text-slate-500">Contact Number:</span>
-                <strong className="text-white font-mono">{mobile}</strong>
+                <span className="text-sky-300/70">Contact Number:</span>
+                <strong className="text-cyan-200 font-mono">{mobile}</strong>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">City:</span>
-                <strong className="text-white">{city}</strong>
+                <span className="text-sky-300/70">City:</span>
+                <strong className="text-cyan-200">{city}</strong>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Response Time:</span>
-                <strong className="text-emerald-400 font-semibold flex items-center gap-1">
+                <span className="text-sky-300/70">Response Time:</span>
+                <strong className="text-cyan-300 font-semibold flex items-center gap-1">
                   <Clock className="w-3 h-3" /> Within 15-30 Minutes
                 </strong>
               </div>
@@ -349,11 +347,11 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
               <a
                 href={
                   whatsAppDirectUrl ||
-                  `https://wa.me/919876543210?text=Hi%20Sneha,%20I%20requested%20a%20quote%20comparison%20for%20${encodeURIComponent(name)}`
+                  `https://wa.me/917400319725?text=Hi%20Sneha,%20I%20requested%20a%20quote%20comparison%20for%20${encodeURIComponent(name)}`
                 }
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-sm"
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 text-slate-950 font-bold text-xs transition-colors shadow-sm"
               >
                 <MessageSquare className="w-4 h-4" />
                 Message Sneha on WhatsApp Directly
@@ -363,7 +361,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                 variant="outline"
                 size="sm"
                 onClick={handleReset}
-                className="w-full text-xs border-slate-700"
+                className="w-full text-xs border-cyan-500/30 bg-[#132f54]/70 text-sky-200 hover:bg-[#183d6b]"
               >
                 Close & Return
               </Button>
