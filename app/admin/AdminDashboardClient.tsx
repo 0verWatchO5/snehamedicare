@@ -10,7 +10,7 @@ import {
   Filter,
   RefreshCw,
   LogOut,
-  Motor,
+  Car as Motor,
   Plane,
   HeartHandshake,
   Shield,
@@ -901,8 +901,8 @@ export default function AdminDashboardClient({
               {uploadMessage && (
                 <div
                   className={`p-3.5 rounded-xl text-xs flex items-center gap-2.5 mb-6 ${uploadMessage.type === "success"
-                      ? "bg-teal-500/15 border border-teal-500/40 text-teal-200"
-                      : "bg-rose-500/15 border border-rose-500/40 text-rose-200"
+                    ? "bg-teal-500/15 border border-teal-500/40 text-teal-200"
+                    : "bg-rose-500/15 border border-rose-500/40 text-rose-200"
                     }`}
                 >
                   {uploadMessage.type === "success" ? (
@@ -1073,8 +1073,8 @@ export default function AdminDashboardClient({
                       key={cat}
                       onClick={() => setGalleryCategoryFilter(cat)}
                       className={`text-xs px-3 py-1 rounded-lg transition-all cursor-pointer ${galleryCategoryFilter === cat
-                          ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-sky-950 font-bold shadow-sm"
-                          : "bg-[#091b30] text-sky-300/70 hover:text-sky-100 border border-cyan-900/40"
+                        ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-sky-950 font-bold shadow-sm"
+                        : "bg-[#091b30] text-sky-300/70 hover:text-sky-100 border border-cyan-900/40"
                         }`}
                     >
                       {cat === "all" ? "All Photos" : cat}

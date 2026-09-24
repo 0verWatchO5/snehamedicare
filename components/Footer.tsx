@@ -48,7 +48,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-sky-200">
                 <Mail className="w-4 h-4 text-cyan-400" />
-                <span>sneha.chaubal@snehamedicare.in</span>
+                <span>sales@snehamedicare.in</span>
               </div>
             </div>
           </div>
