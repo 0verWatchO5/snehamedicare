@@ -26,10 +26,9 @@ import { Badge } from "@/components/ui/badge";
 
 interface HeroSectionProps {
   onOpenQuote: () => void;
-  onOpenTracker: () => void;
 }
 
-export const HeroSection = ({ onOpenQuote, onOpenTracker }: HeroSectionProps) => {
+export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
   const [selectedProfile, setSelectedProfile] = useState<"health" | "car" | "travel" | "life">("health");
 
   const profileOptions = [

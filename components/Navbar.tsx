@@ -2,11 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  ShieldCheck,
   PhoneCall,
-  Clock,
-  Sparkles,
-  FileSearch,
   Menu,
   X,
   HeartHandshake,
@@ -16,10 +12,9 @@ import { Button } from "@/components/ui/button";
 
 interface NavbarProps {
   onOpenQuote: () => void;
-  onOpenTracker: () => void;
 }
 
-export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
+export const Navbar = ({ onOpenQuote }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -38,9 +33,6 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
   const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Insurance Plans", href: "#plans" },
-    { name: "Premium Calculator", href: "#calculator" },
-    { name: "Cashless Network", href: "#hospitals" },
-    { name: "Claim Advocacy", href: "#concierge" },
     { name: "Why Sneha?", href: "#why-sneha" },
     { name: "FAQs", href: "#faqs" },
   ];
@@ -103,7 +95,7 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -115,22 +107,13 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
             ))}
           </nav>
 
-          {/* Right Action CTAs */}
+          {/* Right Action CTA */}
           <div className="hidden sm:flex items-center gap-3">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onOpenTracker}
-              className="text-xs border-cyan-500/30 bg-[#132f54]/70 text-sky-200 hover:bg-[#1a3d6b] hover:text-cyan-100"
-            >
-              <FileSearch className="w-3.5 h-3.5 text-cyan-400" />
-              Track Claim
-            </Button>
             <Button
               variant="default"
               size="sm"
               onClick={onOpenQuote}
-              className="text-xs px-4"
+              className="text-xs px-5 cursor-pointer font-bold shadow-md shadow-cyan-950/40"
             >
               <PhoneCall className="w-3.5 h-3.5" />
               Consult Sneha (Free)
@@ -140,7 +123,7 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-sky-300 hover:text-cyan-200 hover:bg-[#163864]/70 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-sky-300 hover:text-cyan-200 hover:bg-[#163864]/70 transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -164,17 +147,6 @@ export const Navbar = ({ onOpenQuote, onOpenTracker }: NavbarProps) => {
             </div>
 
             <div className="pt-4 border-t border-cyan-900/40 flex flex-col gap-3">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenTracker();
-                }}
-                className="w-full justify-center border-cyan-500/30 bg-[#132f54]"
-              >
-                <FileSearch className="w-4 h-4 text-cyan-400" />
-                Track Cashless Claim
-              </Button>
               <Button
                 variant="default"
                 onClick={() => {
