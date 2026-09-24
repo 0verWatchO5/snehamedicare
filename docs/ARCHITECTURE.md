@@ -4,7 +4,7 @@
 Sneha MediCare Advisory is an IRDAI-certified individual insurance advisory web application. It positions Sneha as an authorized personal insurance agent representing the "Big 3" underwriters:
 - **Star Health & Allied Insurance** (Specialized Health & Senior Citizen Mediclaim)
 - **Life Insurance Corporation of India (LIC)** (Sovereign Guaranteed Term Life & Endowment)
-- **Tata AIG General Insurance** (Zero-Depreciation Car & Schengen/Overseas Travel Insurance)
+- **Tata AIG General Insurance** (Zero-Depreciation Motor & Schengen/Overseas Travel Insurance)
 
 The public application is built on **Next.js 16 (App Router)** with **React 19**, **Tailwind CSS v4**, and **Framer Motion**.
 
@@ -21,7 +21,7 @@ app/layout.tsx (Root HTML, Google Fonts, SEO Metadata)
     ├── HeroSection.tsx (Value proposition, credential badge, category quick-filters)
     ├── PartnerInsurers.tsx (Star Health, LIC, Tata AIG credential showcase)
     ├── ServicesSection.tsx (6 core advisory services & free policy audit banner)
-    ├── PremiumCalculator.tsx (Multi-insurance calculator: Health, Car, Travel, Life)
+    ├── PremiumCalculator.tsx (Multi-insurance calculator: Health, Motor, Travel, Life)
     ├── PlanShowcase.tsx (Curated policy cards with multi-category tab filtering)
     ├── HospitalFinder.tsx (Searchable 12,000+ cashless network hospital directory)
     ├── ClaimConcierge.tsx (45-min pre-auth simulation & interactive claim tracker)

@@ -183,7 +183,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                   className="w-full px-3 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 focus:outline-none focus:border-cyan-400"
                 >
                   <option value="health">Health Insurance (Star Health / Tata AIG)</option>
-                  <option value="car">Car & Motor Insurance (Tata AIG Zero-Dep)</option>
+                  <option value="car">Motor & Motor Insurance (Tata AIG Zero-Dep)</option>
                   <option value="travel">Travel Insurance (Tata AIG Overseas / Schengen)</option>
                   <option value="life">Life & Term Insurance (LIC of India)</option>
                   <option value="senior">Senior Citizen Health (Star Health 60+)</option>
@@ -258,7 +258,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                     <option value="₹25 Lakh">₹25 Lakh</option>
                     <option value="₹50 Lakh">₹50 Lakh</option>
                     <option value="₹1 Crore">₹1 Crore</option>
-                    <option value="Vehicle IDV">Vehicle IDV (Car / Bike)</option>
+                    <option value="Vehicle IDV">Vehicle IDV (Motor / )</option>
                     <option value="$100k Schengen">$100,000 (Travel Schengen)</option>
                   </select>
                 </div>
@@ -274,8 +274,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                     type="button"
                     onClick={() => setHasPED("no")}
                     className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${hasPED === "no"
-                        ? "bg-cyan-500/25 border-cyan-400 text-cyan-300"
-                        : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
+                      ? "bg-cyan-500/25 border-cyan-400 text-cyan-300"
+                      : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
                       }`}
                   >
                     No, Healthy
@@ -284,8 +284,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                     type="button"
                     onClick={() => setHasPED("yes")}
                     className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${hasPED === "yes"
-                        ? "bg-amber-500/25 border-amber-400 text-amber-300"
-                        : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
+                      ? "bg-amber-500/25 border-amber-400 text-amber-300"
+                      : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
                       }`}
                   >
                     Yes, Pre-Existing

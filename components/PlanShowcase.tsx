@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { 
-  ShieldCheck, 
-  Check, 
-  Sparkles, 
-  ArrowRight, 
-  Clock, 
-  HeartHandshake, 
-  Building2, 
-  Zap, 
+import {
+  ShieldCheck,
+  Check,
+  Sparkles,
+  ArrowRight,
+  Clock,
+  HeartHandshake,
+  Building2,
+  Zap,
   HelpCircle,
   FileText,
   BadgeCheck
@@ -30,7 +30,7 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
   const categories = [
     { id: "all", label: "All Curated Plans" },
     { id: "family", label: "Health (Star & Tata)" },
-    { id: "car", label: "Car & Motor (Tata AIG)" },
+    { id: "car", label: "Motor & Motor (Tata AIG)" },
     { id: "travel", label: "Travel & Schengen (Tata AIG)" },
     { id: "life", label: "Life & Term (LIC)" },
     { id: "senior", label: "Senior Care (Star Health)" },
@@ -54,7 +54,7 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
             </span>
           </h2>
           <p className="text-sky-200/80 text-base sm:text-lg">
-            Compare official plans across Health, Zero-Dep Car, Schengen Travel, and LIC Life Insurance with personal 1-on-1 claim advocacy.
+            Compare official plans across Health, Zero-Dep Motor, Schengen Travel, and LIC Life Insurance with personal 1-on-1 claim advocacy.
           </p>
         </div>
 
@@ -64,11 +64,10 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                activeTab === cat.id
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${activeTab === cat.id
                   ? "bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 font-bold shadow-md shadow-cyan-950/40"
                   : "bg-[#0e2a4d]/70 text-sky-200/80 hover:text-cyan-200 hover:bg-[#132f54] border border-cyan-900/40"
-              }`}
+                }`}
             >
               {cat.label}
             </button>
@@ -80,11 +79,10 @@ export const PlanShowcase = ({ onSelectPlan }: PlanShowcaseProps) => {
           {filteredPlans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border group hover:shadow-2xl hover:shadow-cyan-500/25 ${
-                plan.popular
+              className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border group hover:shadow-2xl hover:shadow-cyan-500/25 ${plan.popular
                   ? "bg-[#0e2a4d]/95 border-cyan-400/60 ring-1 ring-cyan-400/30 shadow-2xl shadow-cyan-950/60 -translate-y-1"
                   : "bg-[#0e2a4d]/75 border-cyan-500/20 hover:border-cyan-400/50 hover:bg-[#12335c]/90"
-              }`}
+                }`}
             >
               <GlowingEffect variant="cyan" glow={plan.popular} />
 

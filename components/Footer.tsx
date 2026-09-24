@@ -38,7 +38,7 @@ export const Footer = () => {
             </div>
 
             <p className="text-xs text-sky-200/80 leading-relaxed">
-              Independent licensed insurance advisory by Sneha. Helping families select the ideal coverage across Health, Car, Travel, and Life insurance underwritten by Star Health, LIC of India, and Tata AIG with personal claim concierge at zero extra fee.
+              Independent licensed insurance advisory by Sneha. Helping families select the ideal coverage across Health, Motor, Travel, and Life insurance underwritten by Star Health, LIC of India, and Tata AIG with personal claim concierge at zero extra fee.
             </p>
 
             <div className="pt-2 space-y-2">
@@ -60,7 +60,7 @@ export const Footer = () => {
             </div>
             <ul className="space-y-2 text-xs">
               <li><a href="#plans" className="text-sky-200/80 hover:text-cyan-300 transition-colors">Health Floater & Senior Care</a></li>
-              <li><a href="#plans" className="text-sky-200/80 hover:text-cyan-300 transition-colors">Car Insurance (Zero Depreciation)</a></li>
+              <li><a href="#plans" className="text-sky-200/80 hover:text-cyan-300 transition-colors">Motor Insurance (Zero Depreciation)</a></li>
               <li><a href="#plans" className="text-sky-200/80 hover:text-cyan-300 transition-colors">International & Schengen Travel</a></li>
               <li><a href="#plans" className="text-sky-200/80 hover:text-cyan-300 transition-colors">Term Life & Family Security (LIC)</a></li>
               <li><a href="#plans" className="text-sky-200/80 hover:text-cyan-300 transition-colors">Super Top-Up Health Shields</a></li>

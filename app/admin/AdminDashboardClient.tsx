@@ -10,7 +10,7 @@ import {
   Filter,
   RefreshCw,
   LogOut,
-  Car,
+  Motor,
   Plane,
   HeartHandshake,
   Shield,
@@ -489,7 +489,7 @@ export default function AdminDashboardClient({
   const getWhatsAppLink = (lead: LeadItem) => {
     const typeName =
       lead.insuranceType === "car"
-        ? "Car (Zero-Dep)"
+        ? "Motor (Zero-Dep)"
         : lead.insuranceType === "travel"
           ? "Schengen/Overseas Travel"
           : lead.insuranceType === "life"
@@ -625,7 +625,7 @@ export default function AdminDashboardClient({
               </div>
 
               <div className="p-4 rounded-2xl bg-[#0e2a4d]/85 border border-cyan-500/20 backdrop-blur-sm">
-                <div className="text-[11px] text-cyan-300 uppercase font-semibold">Car (Zero-Dep)</div>
+                <div className="text-[11px] text-cyan-300 uppercase font-semibold">Motor (Zero-Dep)</div>
                 <div className="text-2xl font-black text-cyan-300 mt-1">{motorCount}</div>
                 <div className="text-[10px] text-sky-400/50 mt-0.5">Tata AIG Auto</div>
               </div>
@@ -665,7 +665,7 @@ export default function AdminDashboardClient({
                 >
                   <option value="all">All Insurance Types</option>
                   <option value="health">Health Insurance</option>
-                  <option value="car">Car (Zero-Dep)</option>
+                  <option value="car">Motor (Zero-Dep)</option>
                   <option value="travel">Travel (Schengen)</option>
                   <option value="life">LIC Term Life</option>
                   <option value="senior">Senior Citizen</option>
@@ -900,11 +900,10 @@ export default function AdminDashboardClient({
 
               {uploadMessage && (
                 <div
-                  className={`p-3.5 rounded-xl text-xs flex items-center gap-2.5 mb-6 ${
-                    uploadMessage.type === "success"
+                  className={`p-3.5 rounded-xl text-xs flex items-center gap-2.5 mb-6 ${uploadMessage.type === "success"
                       ? "bg-teal-500/15 border border-teal-500/40 text-teal-200"
                       : "bg-rose-500/15 border border-rose-500/40 text-rose-200"
-                  }`}
+                    }`}
                 >
                   {uploadMessage.type === "success" ? (
                     <CheckCircle className="w-4 h-4 text-teal-400 shrink-0" />
@@ -1073,11 +1072,10 @@ export default function AdminDashboardClient({
                     <button
                       key={cat}
                       onClick={() => setGalleryCategoryFilter(cat)}
-                      className={`text-xs px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                        galleryCategoryFilter === cat
+                      className={`text-xs px-3 py-1 rounded-lg transition-all cursor-pointer ${galleryCategoryFilter === cat
                           ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-sky-950 font-bold shadow-sm"
                           : "bg-[#091b30] text-sky-300/70 hover:text-sky-100 border border-cyan-900/40"
-                      }`}
+                        }`}
                     >
                       {cat === "all" ? "All Photos" : cat}
                     </button>

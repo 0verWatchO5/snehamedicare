@@ -73,7 +73,7 @@ export const WhySneha = () => {
                 <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300">
                   Zero Bias
                 </div>
-                <span className="text-[10px] text-sky-300/70 mt-1">Health • Car • Travel • Life Insurance</span>
+                <span className="text-[10px] text-sky-300/70 mt-1">Health • Motor • Travel • Life Insurance</span>
               </div>
             }
           />

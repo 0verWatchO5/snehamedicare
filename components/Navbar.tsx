@@ -61,7 +61,7 @@ export const Navbar = ({ onOpenQuote }: NavbarProps) => {
               Agent for: <strong className="text-cyan-200">Star Health • LIC of India • Tata AIG</strong>
             </span>
             <span className="h-3 w-[1px] bg-cyan-800/60" />
-            <span className="text-amber-300 font-medium">Health • Car • Travel • Life • ₹0 Advisory Fee</span>
+            <span className="text-amber-300 font-medium">Health • Motor • Travel • Life • ₹0 Advisory Fee</span>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ export const Navbar = ({ onOpenQuote }: NavbarProps) => {
               </div>
               <span className="text-[10px] tracking-wider uppercase text-amber-400 font-semibold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                Health • Car • Travel • Life Insurance
+                Health • Motor • Travel • Life Insurance
               </span>
             </div>
           </a>

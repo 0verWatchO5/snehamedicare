@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
-import { 
-  Calculator, 
-  ShieldCheck, 
-  TrendingDown, 
-  Check, 
-  Info, 
-  ArrowRight, 
-  Building, 
-  Users, 
+import {
+  Calculator,
+  ShieldCheck,
+  TrendingDown,
+  Check,
+  Info,
+  ArrowRight,
+  Building,
+  Users,
   HeartHandshake,
-  Car,
+  Motor,
   Plane,
   Shield,
   PhoneCall,
@@ -39,7 +39,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
   const [memberType, setMemberType] = useState<string>("family");
   const [tenure, setTenure] = useState<number>(1);
 
-  // Car state
+  // Motor state
   const [carValueIndex, setCarValueIndex] = useState<number>(1); // 8 Lakh
   const [zeroDep, setZeroDep] = useState<boolean>(true);
   const [ncbDiscount, setNcbDiscount] = useState<number>(20); // 20%
@@ -70,7 +70,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
     { id: "parents", label: "Senior Parents (60+)", factor: 2.4, taxLimit: 50000 },
   ];
 
-  // Car options
+  // Motor options
   const carValueTiers = [
     { label: "₹4-6 Lakh", sub: "Hatchback (Swift / Tiago)", base: 6400 },
     { label: "₹8-12 Lakh", sub: "Compact SUV / Sedan (Brezza / Creta)", base: 9800 },
@@ -113,7 +113,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
   const healthMonthly = Math.round(healthAnnual / 12);
   const healthTaxSaved = Math.round(Math.min(healthAnnual, currentMember.taxLimit) * 0.312);
 
-  // 2. Car
+  // 2. Motor
   const currentCar = carValueTiers[carValueIndex];
   const zeroDepAddon = zeroDep ? 2800 : 0;
   const carBeforeDiscount = currentCar.base + zeroDepAddon;
@@ -154,7 +154,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
     } else if (calcType === "car") {
       onSelectQuote({
         age: 30,
-        sumInsured: `Car: ${currentCar.label} (NCB ${ncbDiscount}%)`,
+        sumInsured: `Motor: ${currentCar.label} (NCB ${ncbDiscount}%)`,
         members: zeroDep ? "Zero Depreciation" : "Comprehensive",
         monthlyPremium: carMonthly,
         annualPremium: carAnnual,
@@ -195,7 +195,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
             </span>
           </h2>
           <p className="text-sky-200/80 text-base sm:text-lg">
-            Calculate exact premiums for Health, Car, Travel, and Life insurance underwritten by Star Health, Tata AIG, and LIC.
+            Calculate exact premiums for Health, Motor, Travel, and Life insurance underwritten by Star Health, Tata AIG, and LIC.
           </p>
         </div>
 
@@ -203,7 +203,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
         <div className="flex items-center justify-center flex-wrap gap-2.5 mb-10">
           {[
             { id: "health", label: "Health Insurance", underwriter: "Star Health & Tata AIG", icon: ShieldCheck },
-            { id: "car", label: "Car Insurance (Zero Dep)", underwriter: "Tata AIG Auto", icon: Car },
+            { id: "car", label: "Motor Insurance (Zero Dep)", underwriter: "Tata AIG Auto", icon: Motor },
             { id: "travel", label: "Travel & Schengen Visa", underwriter: "Tata AIG Travel", icon: Plane },
             { id: "life", label: "LIC Term & Life", underwriter: "LIC of India", icon: HeartHandshake },
           ].map((tab) => {
@@ -213,11 +213,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
               <button
                 key={tab.id}
                 onClick={() => setCalcType(tab.id as any)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer border ${
-                  isSelected
+                className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer border ${isSelected
                     ? "bg-[#183d6b] border-cyan-400/80 text-cyan-200 shadow-md ring-1 ring-cyan-400/50"
                     : "bg-[#0e2a4d]/70 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200 hover:bg-[#132f54]"
-                }`}
+                  }`}
               >
                 <Icon className={`w-4 h-4 ${isSelected ? "text-cyan-400" : "text-sky-400/60"}`} />
                 <div className="text-left">
@@ -232,7 +231,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Controls Column */}
           <div className="lg:col-span-7 bg-[#0e2a4d]/85 border border-cyan-500/25 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-xl space-y-7">
-            
+
             {/* 1. HEALTH CALCULATOR CONTROLS */}
             {calcType === "health" && (
               <>
@@ -249,11 +248,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={opt.id}
                         onClick={() => setMemberType(opt.id)}
-                        className={`p-3 rounded-xl border text-xs font-semibold transition-all text-left flex flex-col justify-between ${
-                          memberType === opt.id
+                        className={`p-3 rounded-xl border text-xs font-semibold transition-all text-left flex flex-col justify-between ${memberType === opt.id
                             ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200 hover:border-cyan-500/40"
-                        }`}
+                          }`}
                       >
                         <span>{opt.label.split("(")[0]}</span>
                         <span className="text-[10px] text-sky-300/60 font-normal mt-1">
@@ -296,11 +294,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={tier.label}
                         onClick={() => setSumInsuredIndex(idx)}
-                        className={`py-3 px-2 rounded-xl border text-center transition-all ${
-                          sumInsuredIndex === idx
+                        className={`py-3 px-2 rounded-xl border text-center transition-all ${sumInsuredIndex === idx
                             ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 font-bold shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 font-medium hover:text-cyan-200 hover:border-cyan-500/40"
-                        }`}
+                          }`}
                       >
                         <div className="text-xs">{tier.label}</div>
                       </button>
@@ -322,11 +319,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={t.yr}
                         onClick={() => setTenure(t.yr)}
-                        className={`p-3 rounded-xl border text-center transition-all ${
-                          tenure === t.yr
+                        className={`p-3 rounded-xl border text-center transition-all ${tenure === t.yr
                             ? "bg-amber-500/20 border-amber-400/80 text-amber-200 font-bold shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         <div className="text-xs font-bold">{t.label}</div>
                         <span className="text-[10px] text-amber-300/90 font-medium">{t.badge}</span>
@@ -343,7 +339,7 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                 <div>
                   <label className="block text-sm font-semibold text-sky-100 mb-3 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <Car className="w-4 h-4 text-cyan-400" />
+                      <Motor className="w-4 h-4 text-cyan-400" />
                       1. Select Vehicle Segment & Approximate Value (IDV)
                     </span>
                     <span className="text-xs text-sky-300/70 font-normal">Tata AIG Auto Secure</span>
@@ -353,11 +349,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={tier.label}
                         onClick={() => setCarValueIndex(idx)}
-                        className={`p-3.5 rounded-xl border text-left transition-all ${
-                          carValueIndex === idx
+                        className={`p-3.5 rounded-xl border text-left transition-all ${carValueIndex === idx
                             ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         <div className="text-sm font-bold text-cyan-200">{tier.label}</div>
                         <div className="text-[11px] text-sky-300/70 mt-0.5">{tier.sub}</div>
@@ -374,11 +369,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setZeroDep(true)}
-                      className={`p-3.5 rounded-xl border text-left transition-all ${
-                        zeroDep
+                      className={`p-3.5 rounded-xl border text-left transition-all ${zeroDep
                           ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
                           : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
-                      }`}
+                        }`}
                     >
                       <div className="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5" /> Include Zero-Dep (Recommended)
@@ -387,11 +381,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                     </button>
                     <button
                       onClick={() => setZeroDep(false)}
-                      className={`p-3.5 rounded-xl border text-left transition-all ${
-                        !zeroDep
+                      className={`p-3.5 rounded-xl border text-left transition-all ${!zeroDep
                           ? "bg-[#183d6b] border-cyan-500/60 text-cyan-200 shadow-sm"
                           : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
-                      }`}
+                        }`}
                     >
                       <div className="text-xs font-bold text-sky-200">Standard Comprehensive</div>
                       <div className="text-[11px] text-sky-300/60 mt-1">Includes standard depreciation deductions</div>
@@ -412,11 +405,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={ncb}
                         onClick={() => setNcbDiscount(ncb)}
-                        className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
-                          ncbDiscount === ncb
+                        className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${ncbDiscount === ncb
                             ? "bg-amber-500/20 border-amber-400/80 text-amber-200 shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         {ncb}% NCB
                       </button>
@@ -442,11 +434,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={dest.id}
                         onClick={() => setTravelDest(dest.id)}
-                        className={`p-3.5 rounded-xl border text-left transition-all ${
-                          travelDest === dest.id
+                        className={`p-3.5 rounded-xl border text-left transition-all ${travelDest === dest.id
                             ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         <div className="text-xs font-bold text-cyan-200">{dest.label}</div>
                         <div className="text-[11px] text-cyan-300/80 mt-0.5">Emergency Cover: {dest.currency}</div>
@@ -483,11 +474,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={count}
                         onClick={() => setTravelersCount(count)}
-                        className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
-                          travelersCount === count
+                        className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${travelersCount === count
                             ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         {count} {count > 1 ? "Travelers" : "Traveler"}
                       </button>
@@ -513,11 +503,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={tier.label}
                         onClick={() => setLifeSumIndex(idx)}
-                        className={`py-3 px-2 rounded-xl border text-center transition-all ${
-                          lifeSumIndex === idx
+                        className={`py-3 px-2 rounded-xl border text-center transition-all ${lifeSumIndex === idx
                             ? "bg-cyan-500/20 border-cyan-400/80 text-cyan-200 font-bold shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         <div className="text-xs">{tier.label}</div>
                       </button>
@@ -553,11 +542,10 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
                       <button
                         key={t}
                         onClick={() => setLifeTerm(t)}
-                        className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${
-                          lifeTerm === t
+                        className={`py-2.5 rounded-xl border text-center text-xs font-bold transition-all ${lifeTerm === t
                             ? "bg-amber-500/20 border-amber-400/80 text-amber-200 shadow-sm"
                             : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80 hover:text-cyan-200"
-                        }`}
+                          }`}
                       >
                         {t} Years Protection
                       </button>
@@ -644,31 +632,31 @@ export const PremiumCalculator = ({ onSelectQuote }: PremiumCalculatorProps) => 
               </div>
               {(calcType === "health"
                 ? [
-                    "Zero Room Rent Capping (Any single AC room)",
-                    "100% Unlimited Restores for unrelated illnesses",
-                    "45-Minute Cashless Pre-Auth at 14,000+ Hospitals",
-                    "Free Annual Full-Body Preventive Health Checkup"
-                  ]
+                  "Zero Room Rent Capping (Any single AC room)",
+                  "100% Unlimited Restores for unrelated illnesses",
+                  "45-Minute Cashless Pre-Auth at 14,000+ Hospitals",
+                  "Free Annual Full-Body Preventive Health Checkup"
+                ]
                 : calcType === "car"
-                ? [
+                  ? [
                     "Bumper-to-Bumper Zero Depreciation coverage",
                     "Access to 7,500+ Tata AIG cashless network garages",
                     "24/7 Spot Roadside Assistance & towing support",
                     "Key replacement & personal accident cover"
                   ]
-                : calcType === "travel"
-                ? [
-                    "Embassy approved Schengen / US visa compliance",
-                    "Worldwide cashless hospital emergency coverage",
-                    "Passport theft, flight delay & lost baggage compensation",
-                    "Emergency medical evacuation back to India"
-                  ]
-                : [
-                    "100% Sovereign Guarantee under Section 37 of LIC Act",
-                    "Tax-free claim payout under Section 10(10D)",
-                    "Lowest non-smoker term insurance rates",
-                    "Personal claim settlement advocacy by Sneha"
-                  ]
+                  : calcType === "travel"
+                    ? [
+                      "Embassy approved Schengen / US visa compliance",
+                      "Worldwide cashless hospital emergency coverage",
+                      "Passport theft, flight delay & lost baggage compensation",
+                      "Emergency medical evacuation back to India"
+                    ]
+                    : [
+                      "100% Sovereign Guarantee under Section 37 of LIC Act",
+                      "Tax-free claim payout under Section 10(10D)",
+                      "Lowest non-smoker term insurance rates",
+                      "Personal claim settlement advocacy by Sneha"
+                    ]
               ).map((benefit, i) => (
                 <div key={i} className="flex items-center gap-2 text-xs text-sky-200">
                   <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />

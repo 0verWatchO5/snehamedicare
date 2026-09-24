@@ -107,7 +107,7 @@ export interface FAQ {
    - Focus: Pure Term Life (Tech Term, Jeevan Amar) & Sovereign Guaranteed Family Security.
    - Claim Settlement Ratio: **98.52%** | Backing: **Government of India (Section 37, LIC Act)**.
 3. **Tata AIG General Insurance Co. Ltd.**
-   - Focus: Zero-Depreciation Car Insurance (Auto Secure) & Schengen/Global Travel Guard.
+   - Focus: Zero-Depreciation Motor Insurance (Auto Secure) & Schengen/Global Travel Guard.
    - Network: **8,200+ Cashless Garages** & Worldwide Medical Assistance.
 
 ---
@@ -117,7 +117,7 @@ export interface FAQ {
 | Plan Name | Underwriter | Category | Starting Premium | Highlights |
 |---|---|---|---|---|
 | **Star Comprehensive Floater** | Star Health | Family Health | ₹1,250/mo | Zero Room Rent Capping, Maternity & Newborn Cover, ₹5L–₹1 Cr SI |
-| **Tata AIG Auto Secure (Zero Dep)** | Tata AIG | Car & Motor | ₹990/mo | Bumper-to-Bumper Zero Dep, Engine Protect, Consumables Cover, 8,200+ Garages |
+| **Tata AIG Auto Secure (Zero Dep)** | Tata AIG | Motor & Motor | ₹990/mo | Bumper-to-Bumper Zero Dep, Engine Protect, Consumables Cover, 8,200+ Garages |
 | **Tata AIG Travel Guard** | Tata AIG | Travel & Schengen | ₹650/trip | 100% Schengen Visa Compliant (€30K+), Flight Delays, Lost Baggage & Evacuation |
 | **LIC Tech Term (Pure Term)** | LIC of India | Life & Term | ₹850/mo | Sovereign Guarantee, ₹50L–₹3 Cr Sum Assured, Section 80C Tax Deduction |
 | **Star Senior Citizens Red Carpet** | Star Health | Senior Health | ₹2,100/mo | Entry Age 60–75, No Pre-Insurance Medical Screening, Covers Pre-Existing Ailments |

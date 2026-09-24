@@ -45,14 +45,14 @@ The public application is optimized for search visibility across major Indian ci
 export const metadata: Metadata = {
   title: "Sneha MediCare | Agent for Star Health, LIC & Tata AIG",
   description:
-    "Sneha is an IRDAI-certified insurance agent representing Star Health, LIC of India, and Tata AIG. Complete insurance coverage including Health, Zero-Dep Car, Schengen Travel, and LIC Life policies with direct claim support at official insurer tariffs.",
+    "Sneha is an IRDAI-certified insurance agent representing Star Health, LIC of India, and Tata AIG. Complete insurance coverage including Health, Zero-Dep Motor, Schengen Travel, and LIC Life policies with direct claim support at official insurer tariffs.",
   keywords: [
     "Sneha MediCare",
     "Insurance Agent Star Health",
     "LIC of India Agent",
-    "Tata AIG Car Insurance",
+    "Tata AIG Motor Insurance",
     "Tata AIG Travel Insurance",
-    "Zero Depreciation Car Insurance",
+    "Zero Depreciation Motor Insurance",
     "Schengen Visa Travel Insurance",
     "Star Health Family Floater",
     "LIC Term Life Insurance",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sneha MediCare | Agent for Star Health, LIC & Tata AIG",
     description:
-      "All types of insurance including Health, Car (Zero Dep), Travel (Schengen), and Life with 1-on-1 personal claim assistance from Sneha at official insurer rates.",
+      "All types of insurance including Health, Motor (Zero Dep), Travel (Schengen), and Life with 1-on-1 personal claim assistance from Sneha at official insurer rates.",
     siteName: "Sneha MediCare",
     locale: "en_IN",
     type: "website",

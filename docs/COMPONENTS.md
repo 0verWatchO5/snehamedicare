@@ -11,7 +11,7 @@ The primary global header. Features a **unified sticky container** that combines
 
 ### Key Elements
 - **Top Announcement Bar**:
-  - Highlights agency credentials: `"Agent for: Star Health • LIC of India • Tata AIG | Health • Car • Travel • Life"`.
+  - Highlights agency credentials: `"Agent for: Star Health • LIC of India • Tata AIG | Health • Motor • Travel • Life"`.
   - Direct WhatsApp link: `+91 7400319725` with live online indicator.
 - **Main Nav Header**:
   - Logo and brand identity: "Sneha MediCare".
@@ -28,13 +28,13 @@ The focal entry point establishing trust, professional agency credentials, and i
 
 ### Key Elements
 - **IRDAI Credential Pill**:
-  - Sovereign gold and sapphire pill badge: `"IRDAI Certified Agent • Star Health • LIC of India • Tata AIG • Health, Car, Travel & Life"`.
+  - Sovereign gold and sapphire pill badge: `"IRDAI Certified Agent • Star Health • LIC of India • Tata AIG • Health, Motor, Travel & Life"`.
   - Zero neon glow or distracting AI effects.
 - **Headline & Subtitle**:
-  - *"Complete Insurance For Your Health, Car, Travel & Life From An Agent Who Actually Answers Your Call."*
+  - *"Complete Insurance For Your Health, Motor, Travel & Life From An Agent Who Actually Answers Your Call."*
   - Replaces impersonal online aggregators with a dedicated personal advisor.
 - **Quick Category Selector**:
-  - 4 quick-jump buttons: **Health Insurance** (Star Health), **Car (Zero-Dep)** (Tata AIG), **Travel (Schengen)** (Tata AIG), and **Life / Term** (LIC).
+  - 4 quick-jump buttons: **Health Insurance** (Star Health), **Motor (Zero-Dep)** (Tata AIG), **Travel (Schengen)** (Tata AIG), and **Life / Term** (LIC).
   - Clicking any category smoothly navigates the user directly to relevant plans.
 - **Action CTAs**:
   - Primary: `"Compare Plans & Lock Quote"` (launches `QuoteModal`).
@@ -60,7 +60,7 @@ Showcases the trio of licensed underwriters that Sneha officially represents, bu
    - Focus: Pure Term Life (Tech Term / Jeevan Amar) & Family Security.
    - Highlights: Sovereign Guarantee (Section 37 of LIC Act), 98.52% Settlement Ratio, ₹50L to ₹3 Cr+ Sum Assured.
 3. **Tata AIG General Insurance Co. Ltd.**:
-   - Focus: Zero-Depreciation Car Insurance & International Schengen Travel Guard.
+   - Focus: Zero-Depreciation Motor Insurance & International Schengen Travel Guard.
    - Highlights: 8,200+ Cashless Garages, 100% Schengen Visa Approved, Flight Delay & Medical Evacuation.
 
 ---
@@ -72,7 +72,7 @@ Defines the 6 distinct services Sneha provides as an independent personal adviso
 
 ### The 6 Core Advisory Services
 1. **Comprehensive Health Insurance Advisory**: Multi-plan comparison across Star Health and Tata AIG without single-company sales bias.
-2. **Zero-Depreciation Car Insurance**: Bumper-to-bumper car insurance with engine protect, consumable cover, and 8,200+ cashless garages.
+2. **Zero-Depreciation Motor Insurance**: Bumper-to-bumper car insurance with engine protect, consumable cover, and 8,200+ cashless garages.
 3. **Schengen & Worldwide Travel Insurance**: Visa-approved mandatory medical cover (€30,000+), trip cancellation, and lost passport protection.
 4. **LIC Term Life & Sovereign Security**: High-cover pure term protection backed by the Government of India with Section 80C tax deduction.
 5. **Senior Citizen (60+) Healthcare**: Specialized policies with pre-existing disease (PED) waivers and reduced waiting periods.
@@ -89,7 +89,7 @@ An interactive, 4-in-1 calculator allowing visitors to estimate official premium
 1. **Health Insurance**:
    - Selectors: Age slider (18–75), Family Member configuration (Individual, Couple, Family Floater, Senior Parents), Sum Insured (₹5L to ₹1 Cr).
    - Computes: Monthly & annual premium, Section 80D tax deductions (up to ₹75,000).
-2. **Car Insurance (Zero-Dep)**:
+2. **Motor Insurance (Zero-Dep)**:
    - Selectors: Vehicle Segment (Hatchback, Compact Sedan, Mid-SUV, Luxury / EV), Vehicle Age, No-Claim Bonus (NCB) slider (0% to 50%).
    - Computes: Own damage premium, Zero-Depreciation add-on cost, cashless garage network coverage.
 3. **Travel Insurance (Schengen / Global)**:
@@ -107,7 +107,7 @@ An interactive, 4-in-1 calculator allowing visitors to estimate official premium
 Curated policy cards with interactive category tabs:
 - **All Plans**
 - **Health & Mediclaim** (Star Health Comprehensive Floater, Tata AIG MediCare)
-- **Car & Motor (Zero Dep)** (Tata AIG Auto Secure)
+- **Motor & Motor (Zero Dep)** (Tata AIG Auto Secure)
 - **Travel & Schengen** (Tata AIG Travel Guard)
 - **Life & Term Security** (LIC Tech Term & Jeevan Amar)
 - **Senior Citizen Care** (Star Health Senior Red Carpet)
@@ -191,7 +191,7 @@ The primary conversion vehicle for locking quotes, requesting policy audits, or 
 - **Full Name**: Customer's name.
 - **Mobile Number**: 10-digit Indian phone number (with validation).
 - **City**: City selection (Mumbai, Delhi, Bengaluru, etc.).
-- **Insurance Type**: Health, Car (Zero-Dep), Travel (Schengen), Life (LIC), Senior Care, Policy Audit.
+- **Insurance Type**: Health, Motor (Zero-Dep), Travel (Schengen), Life (LIC), Senior Care, Policy Audit.
 - **Sum Insured**: Selection tier (₹5 Lakh to ₹1 Crore+).
 - **Pre-Existing Diseases (PED)**: Yes / No toggle.
 

@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { 
-  ShieldCheck, 
-  Sparkles, 
-  ArrowRight, 
-  Users, 
-  User, 
-  Heart, 
-  Shield, 
-  CheckCircle2, 
-  Hospital, 
-  PhoneCall, 
-  Zap, 
+import {
+  ShieldCheck,
+  Sparkles,
+  ArrowRight,
+  Users,
+  User,
+  Heart,
+  Shield,
+  CheckCircle2,
+  Hospital,
+  PhoneCall,
+  Zap,
   Award,
   Building2,
   Check,
@@ -42,7 +42,7 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
     },
     {
       id: "car",
-      label: "Car & Motor (Zero Dep)",
+      label: "Motor (Zero Dep)",
       icon: Car,
       desc: "Bumper-to-bumper zero dep, 7,500+ cashless garages & 24/7 towing",
       startingAt: "₹690/mo",
@@ -83,13 +83,13 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
           </span>
           <span className="text-cyan-700 hidden sm:inline">•</span>
           <span className="text-xs font-semibold text-sky-200 hidden sm:inline-flex items-center gap-1">
-            <Check className="w-3.5 h-3.5 text-cyan-400" /> Health, Car, Travel & Life
+            <Check className="w-3.5 h-3.5 text-cyan-400" /> Health, Motor, Travel & Life
           </span>
         </div>
 
         {/* Main Headline */}
         <h1 className="text-4xl sm:text-6xl lg:text-5xl font-extrabold tracking-tight text-cyan-200 max-w-5xl leading-[1.12] mb-6">
-          Complete Insurance For Your Health, Car, Travel & Life From An Agent Who{" "}
+          Complete Insurance For Your Health, Motor, Travel & Life From An Agent Who{" "}
           <span className="text-gradient-cyan">
             Actually Answers Your Call.
           </span>
@@ -107,7 +107,7 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
             { name: "Star Health Insurance", tag: "Health Specialist" },
             { name: "LIC of India", tag: "Life & Sovereign Protection" },
             { name: "Tata AIG General Insurance", tag: "Motor & Health" },
-            { name: "ASEGO Travel Insurance", tag: "Travel"}
+            { name: "ASEGO Travel Insurance", tag: "Travel" }
           ].map((item) => (
             <span key={item.name} className="px-3.5 py-1.5 rounded-lg bg-[#122e54]/90 border border-cyan-500/25 text-cyan-200 font-semibold text-xs flex items-center gap-1.5 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
@@ -137,18 +137,16 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                 <button
                   key={opt.id}
                   onClick={() => setSelectedProfile(opt.id as any)}
-                  className={`relative text-left p-4 rounded-2xl transition-all duration-200 cursor-pointer border ${
-                    isSelected
+                  className={`relative text-left p-4 rounded-2xl transition-all duration-200 cursor-pointer border ${isSelected
                       ? "bg-[#183d6b] border-cyan-400/80 ring-1 ring-cyan-400/50 shadow-lg shadow-cyan-950/60"
                       : "bg-[#0b213c]/70 border-cyan-900/40 hover:border-cyan-500/40 hover:bg-[#132f54]/60"
-                  }`}
+                    }`}
                 >
                   {isSelected && (
                     <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                   )}
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 ${
-                    isSelected ? "bg-cyan-500/25 text-cyan-200" : "bg-[#143157] text-sky-300"
-                  }`}>
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 ${isSelected ? "bg-cyan-500/25 text-cyan-200" : "bg-[#143157] text-sky-300"
+                    }`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="font-bold text-sm text-cyan-200 mb-1 line-clamp-1">
