@@ -88,7 +88,7 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight text-cyan-200 max-w-5xl leading-[1.12] mb-6">
+        <h1 className="text-4xl sm:text-6xl lg:text-5xl font-extrabold tracking-tight text-cyan-200 max-w-5xl leading-[1.12] mb-6">
           Complete Insurance For Your Health, Car, Travel & Life From An Agent Who{" "}
           <span className="text-gradient-cyan">
             Actually Answers Your Call.
@@ -96,8 +96,8 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-3xl text-base sm:text-xl text-sky-200/90 font-normal leading-relaxed mb-8">
-          Hi, I am <strong className="text-cyan-300 font-bold">Sneha</strong>, your licensed advisor representing <strong className="text-cyan-300 font-bold">Star Health, LIC of India, and Tata AIG</strong>. Whether you need zero room-rent family health cover, zero-dep car insurance, Schengen-compliant travel protection, or guaranteed LIC term security — I compare, issue, and personally stand by your claims.
+        <p className="max-w-3xl text-base sm:text-2xl text-sky-200/90 font-normal leading-relaxed mb-8">
+          Hi, I am <strong className="text-cyan-300 font-bold">Sneha</strong>, your licensed advisor representing <strong className="text-cyan-300 font-bold">Star Health, LIC of India, and Tata AIG</strong>. Whether you need zero room-rent family health cover, zero-dep car insurance, Schengen-compliant travel protection, or guaranteed LIC term security. I compare, issue, and personally stand by your claims.
         </p>
 
         {/* Partner Insurer Chips */}
@@ -106,7 +106,8 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
           {[
             { name: "Star Health Insurance", tag: "Health Specialist" },
             { name: "LIC of India", tag: "Life & Sovereign Protection" },
-            { name: "Tata AIG General Insurance", tag: "Car, Travel & Health" },
+            { name: "Tata AIG General Insurance", tag: "Motor & Health" },
+            { name: "ASEGO Travel Insurance", tag: "Travel"}
           ].map((item) => (
             <span key={item.name} className="px-3.5 py-1.5 rounded-lg bg-[#122e54]/90 border border-cyan-500/25 text-cyan-200 font-semibold text-xs flex items-center gap-1.5 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />

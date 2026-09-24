@@ -31,10 +31,11 @@ export const Navbar = ({ onOpenQuote }: NavbarProps) => {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Insurance Plans", href: "#plans" },
-    { name: "Why Sneha?", href: "#why-sneha" },
-    { name: "FAQs", href: "#faqs" },
+    { name: "Services", href: "/#services" },
+    { name: "Insurance Plans", href: "/#plans" },
+    { name: "Why Sneha?", href: "/#why-sneha" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "FAQs", href: "/#faqs" },
   ];
 
   return (
@@ -74,7 +75,7 @@ export const Navbar = ({ onOpenQuote }: NavbarProps) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo / Personal Brand */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-[#132d50] border border-cyan-500/30 group-hover:border-cyan-400/60 shadow-sm transition-all duration-300">
               <HeartHandshake className="w-6 h-6 text-cyan-400 group-hover:scale-105 transition-transform duration-300" />
             </div>
