@@ -5,15 +5,12 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { PartnerInsurers } from "@/components/PartnerInsurers";
 import { ServicesSection } from "@/components/ServicesSection";
-import { PremiumCalculator } from "@/components/PremiumCalculator";
 import { PlanShowcase } from "@/components/PlanShowcase";
-import { HospitalFinder } from "@/components/HospitalFinder";
-import { ClaimConcierge } from "@/components/ClaimConcierge";
 import { WhySneha } from "@/components/WhySneha";
 import { TestimonialsAndFAQ } from "@/components/TestimonialsAndFAQ";
 import { Footer } from "@/components/Footer";
 import { QuoteModal } from "@/components/QuoteModal";
-import { InsurancePlan, CashlessHospital } from "@/app/data/insuranceData";
+import { InsurancePlan } from "@/app/data/insuranceData";
 
 export default function Home() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -46,53 +43,15 @@ export default function Home() {
     setIsQuoteModalOpen(true);
   };
 
-  const handleCalculatorSelect = (calcDetails: {
-    age: number;
-    sumInsured: string;
-    members: string;
-    monthlyPremium: number;
-    annualPremium: number;
-    taxSavings: number;
-  }) => {
-    setQuotePrefill({
-      planName: `Calculated Coverage (${calcDetails.members}, Age ${calcDetails.age})`,
-      sumInsured: calcDetails.sumInsured,
-      monthlyPremium: calcDetails.monthlyPremium,
-      members: calcDetails.members,
-    });
-    setIsQuoteModalOpen(true);
-  };
-
-  const handleOpenAdmissionModal = (hospital: CashlessHospital) => {
-    setQuotePrefill({
-      planName: `Cashless Claim Pre-Auth at ${hospital.name} (${hospital.city})`,
-      sumInsured: "₹25 Lakh",
-    });
-    setIsQuoteModalOpen(true);
-  };
-
-  const handleOpenTracker = () => {
-    const conciergeElement = document.getElementById("concierge");
-    if (conciergeElement) {
-      conciergeElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0c2340] via-[#0e2a4d] to-[#091b30] text-sky-200 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
       {/* Sticky Navigation Bar */}
-      <Navbar
-        onOpenQuote={handleOpenQuote}
-        onOpenTracker={handleOpenTracker}
-      />
+      <Navbar onOpenQuote={handleOpenQuote} />
 
       {/* Main Content Sections */}
       <main className="flex-1">
         {/* Hero Section */}
-        <HeroSection
-          onOpenQuote={handleOpenQuote}
-          onOpenTracker={handleOpenTracker}
-        />
+        <HeroSection onOpenQuote={handleOpenQuote} />
 
         {/* Partner Insurers Strip */}
         <PartnerInsurers />
@@ -102,23 +61,10 @@ export default function Home() {
           onOpenConsultation={handleOpenConsultationForService}
         />
 
-        {/* Interactive Premium & Tax Calculator */}
-        <PremiumCalculator
-          onSelectQuote={handleCalculatorSelect}
-        />
-
         {/* Curated Health Plans Showcase */}
         <PlanShowcase
           onSelectPlan={handleSelectPlan}
         />
-
-        {/* 12,000+ Cashless Hospitals Locator */}
-        <HospitalFinder
-          onOpenAdmissionModal={handleOpenAdmissionModal}
-        />
-
-        {/* 45-Minute Cashless Claim Concierge & Interactive Simulator */}
-        <ClaimConcierge />
 
         {/* The Personal Agent Advantage Bento Grid */}
         <WhySneha />

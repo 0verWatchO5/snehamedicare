@@ -17,6 +17,7 @@ import {
   UserCheck
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { StatefulButton } from "@/components/ui/stateful-button";
 import { Badge } from "@/components/ui/badge";
 
 interface QuoteModalProps {
@@ -45,9 +46,19 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !mobile) return;
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    if (e) e.preventDefault();
+
+    if (!name.trim()) {
+      setErrorMsg("Please enter your full name.");
+      throw new Error("Missing name");
+    }
+
+    const cleanMobile = mobile.replace(/\D/g, "");
+    if (!cleanMobile || cleanMobile.length !== 10) {
+      setErrorMsg("Please enter a valid 10-digit mobile number.");
+      throw new Error("Invalid mobile number");
+    }
 
     setLoading(true);
     setErrorMsg(null);
@@ -57,8 +68,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name,
-          mobile,
+          name: name.trim(),
+          mobile: cleanMobile,
           city,
           insuranceType,
           sumInsured,
@@ -81,18 +92,28 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
           origin: { y: 0.6 },
         });
 
+        // Allow user to see the success stateful animation before transitioning to confirmation view
+        await new Promise((resolve) => setTimeout(resolve, 1400));
         setSubmitted(true);
       } else {
-        setErrorMsg(data.error || "Failed to submit. Please contact Sneha on WhatsApp.");
+        const errorText = data.error || "Failed to submit. Please contact Sneha on WhatsApp.";
+        setErrorMsg(errorText);
+        throw new Error(errorText);
       }
-    } catch {
-      // Fallback: still show confirmation and allow direct WhatsApp
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-      setSubmitted(true);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Submission error";
+      if (message !== "Missing name" && message !== "Invalid mobile number" && !message.includes("Failed to submit")) {
+        // Fallback: still show confirmation and allow direct WhatsApp
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+        setSubmitted(true);
+      } else {
+        throw err;
+      }
     } finally {
       setLoading(false);
     }
@@ -162,7 +183,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                   className="w-full px-3 py-2.5 bg-[#0b213c]/90 border border-cyan-900/40 rounded-xl text-xs text-sky-100 focus:outline-none focus:border-cyan-400"
                 >
                   <option value="health">Health Insurance (Star Health / Tata AIG)</option>
-                  <option value="car">Car & Motor Insurance (Tata AIG Zero-Dep)</option>
+                  <option value="car">Motor & Motor Insurance (Tata AIG Zero-Dep)</option>
                   <option value="travel">Travel Insurance (Tata AIG Overseas / Schengen)</option>
                   <option value="life">Life & Term Insurance (LIC of India)</option>
                   <option value="senior">Senior Citizen Health (Star Health 60+)</option>
@@ -237,7 +258,7 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                     <option value="₹25 Lakh">₹25 Lakh</option>
                     <option value="₹50 Lakh">₹50 Lakh</option>
                     <option value="₹1 Crore">₹1 Crore</option>
-                    <option value="Vehicle IDV">Vehicle IDV (Car / Bike)</option>
+                    <option value="Vehicle IDV">Vehicle IDV (Motor / )</option>
                     <option value="$100k Schengen">$100,000 (Travel Schengen)</option>
                   </select>
                 </div>
@@ -253,8 +274,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                     type="button"
                     onClick={() => setHasPED("no")}
                     className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${hasPED === "no"
-                        ? "bg-cyan-500/25 border-cyan-400 text-cyan-300"
-                        : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
+                      ? "bg-cyan-500/25 border-cyan-400 text-cyan-300"
+                      : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
                       }`}
                   >
                     No, Healthy
@@ -263,8 +284,8 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                     type="button"
                     onClick={() => setHasPED("yes")}
                     className={`py-2 rounded-xl text-xs font-semibold border transition-colors ${hasPED === "yes"
-                        ? "bg-amber-500/25 border-amber-400 text-amber-300"
-                        : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
+                      ? "bg-amber-500/25 border-amber-400 text-amber-300"
+                      : "bg-[#0b213c]/80 border-cyan-900/40 text-sky-200/80"
                       }`}
                   >
                     Yes, Pre-Existing
@@ -279,26 +300,26 @@ export const QuoteModal = ({ isOpen, onClose, prefill }: QuoteModalProps) => {
                 </div>
               )}
 
-              {/* Submit CTA */}
-              <Button
-                variant="default"
-                size="lg"
+              {/* Submit CTA with Aceternity Stateful Button */}
+              <StatefulButton
                 type="submit"
+                onClick={handleSubmit}
                 disabled={loading}
-                className="w-full font-bold text-xs mt-4 shadow-md shadow-cyan-950/40"
+                loadingNode={
+                  <span className="flex items-center gap-2 font-bold">
+                    Locking Official Quote & Notifying Sneha...
+                  </span>
+                }
+                successNode={
+                  <span className="flex items-center gap-2 font-black text-slate-950">
+                    Enquiry Sent! Quote Locked
+                  </span>
+                }
+                className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 hover:from-cyan-300 hover:via-teal-300 hover:to-emerald-300 text-slate-950 font-black text-xs tracking-wide shadow-xl shadow-cyan-500/25 hover:shadow-cyan-400/35 transition-all duration-300 mt-4 cursor-pointer"
               >
-                {loading ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <span className="w-3.5 h-3.5 border-2 border-cyan-200/30 border-t-cyan-200 rounded-full animate-spin" />
-                    Locking Your Official Quote in Database...
-                  </span>
-                ) : (
-                  <span className="flex items-center justify-center gap-2">
-                    <PhoneCall className="w-4 h-4" />
-                    Request Personal Quote with Sneha
-                  </span>
-                )}
-              </Button>
+                <PhoneCall className="w-4 h-4 shrink-0" />
+                <span>Request Personal Quote with Sneha</span>
+              </StatefulButton>
 
               <div className="flex items-center justify-center gap-2 text-[10px] text-sky-300/60 pt-2">
                 <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />

@@ -10,7 +10,7 @@ import {
   Filter,
   RefreshCw,
   LogOut,
-  Car,
+  Car as Motor,
   Plane,
   HeartHandshake,
   Shield,
@@ -30,10 +30,28 @@ import {
   Settings,
   Database,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  UploadCloud,
+  Image as ImageIcon,
+  Loader2,
+  Eye,
+  Calendar,
+  Tag,
+  Plus
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
+interface AdminGalleryItem {
+  _id: string;
+  title: string;
+  description?: string;
+  category: string;
+  imageUrl: string;
+  publicId: string;
+  createdAt: string;
+  featured?: boolean;
+}
 
 interface LeadItem {
   _id: string;
@@ -70,12 +88,27 @@ export default function AdminDashboardClient({
   dbError,
   user,
 }: AdminDashboardClientProps) {
-  const [activeTab, setActiveTab] = useState<"leads" | "security">("leads");
+  const [activeTab, setActiveTab] = useState<"leads" | "gallery" | "security">("leads");
   const [leads, setLeads] = useState<LeadItem[]>(initialLeads);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
   const [loading, setLoading] = useState(false);
+
+  // Gallery state
+  const [galleryItems, setGalleryItems] = useState<AdminGalleryItem[]>([]);
+  const [galleryLoading, setGalleryLoading] = useState(false);
+  const [galleryCategoryFilter, setGalleryCategoryFilter] = useState("all");
+
+  // Gallery upload form states
+  const [uploadTitle, setUploadTitle] = useState("");
+  const [uploadCategory, setUploadCategory] = useState("Awards & Honors");
+  const [uploadDescription, setUploadDescription] = useState("");
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadPreview, setUploadPreview] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<string | null>(null);
+  const [uploadMessage, setUploadMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   // Security tab states
   const [currentPassword, setCurrentPassword] = useState("");
@@ -102,12 +135,149 @@ export default function AdminDashboardClient({
     authVersion: string;
   } | null>(null);
 
-  // Fetch security info when entering security tab
+  // Initial load
+  useEffect(() => {
+    fetchGalleryItems();
+  }, []);
+
+  // Fetch security info when entering security tab, or gallery items on tab switch
   useEffect(() => {
     if (activeTab === "security") {
       fetchSecurityData();
+    } else if (activeTab === "gallery") {
+      fetchGalleryItems();
     }
   }, [activeTab]);
+
+  const fetchGalleryItems = async () => {
+    setGalleryLoading(true);
+    try {
+      const res = await fetch("/api/gallery?limit=100");
+      const data = await res.json();
+      if (data.items) {
+        setGalleryItems(data.items);
+      }
+    } catch (err) {
+      console.error("Failed to load gallery items", err);
+    } finally {
+      setGalleryLoading(false);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setUploadFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUploadPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleUploadImage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setUploadMessage(null);
+
+    if (!uploadFile) {
+      setUploadMessage({ type: "error", text: "Please select an image file to upload." });
+      return;
+    }
+    if (!uploadTitle.trim()) {
+      setUploadMessage({ type: "error", text: "Please enter a title for this photo." });
+      return;
+    }
+
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+    const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
+    if (!cloudName || !uploadPreset) {
+      setUploadMessage({
+        type: "error",
+        text: "Cloudinary is not configured. Please ensure NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME and NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET are set in your environment.",
+      });
+      return;
+    }
+
+    setIsUploading(true);
+    setUploadProgress("Uploading directly to Cloudinary CDN...");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", uploadFile);
+      formData.append("upload_preset", uploadPreset);
+
+      const uploadRes = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const uploadData = await uploadRes.json();
+
+      if (!uploadRes.ok) {
+        throw new Error(uploadData.error?.message || "Cloudinary upload failed");
+      }
+
+      setUploadProgress("Saving record to database...");
+
+      const saveRes = await fetch("/api/gallery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: uploadTitle.trim(),
+          category: uploadCategory,
+          description: uploadDescription.trim(),
+          imageUrl: uploadData.secure_url,
+          publicId: uploadData.public_id,
+          width: uploadData.width,
+          height: uploadData.height,
+          format: uploadData.format,
+        }),
+      });
+
+      const saveData = await saveRes.json();
+      if (!saveRes.ok) {
+        throw new Error(saveData.error || "Failed to save photo record to database");
+      }
+
+      setUploadMessage({ type: "success", text: "Photo uploaded & published to gallery successfully!" });
+      setUploadTitle("");
+      setUploadDescription("");
+      setUploadFile(null);
+      setUploadPreview(null);
+      fetchGalleryItems();
+    } catch (err: any) {
+      console.error("Upload error:", err);
+      setUploadMessage({ type: "error", text: err.message || "Failed to complete upload" });
+    } finally {
+      setIsUploading(false);
+      setUploadProgress(null);
+    }
+  };
+
+  const handleDeleteGalleryItem = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this photo from the gallery and Cloudinary CDN?")) {
+      return;
+    }
+    try {
+      const res = await fetch(`/api/gallery?id=${id}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        setGalleryItems((prev) => prev.filter((item) => item._id !== id));
+      } else {
+        const data = await res.json();
+        alert(data.error || "Failed to delete photo");
+      }
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert("An error occurred while deleting the image.");
+    }
+  };
 
   const fetchSecurityData = async () => {
     try {
@@ -319,7 +489,7 @@ export default function AdminDashboardClient({
   const getWhatsAppLink = (lead: LeadItem) => {
     const typeName =
       lead.insuranceType === "car"
-        ? "Car (Zero-Dep)"
+        ? "Motor (Zero-Dep)"
         : lead.insuranceType === "travel"
           ? "Schengen/Overseas Travel"
           : lead.insuranceType === "life"
@@ -363,6 +533,16 @@ export default function AdminDashboardClient({
             >
               <Users className="w-3.5 h-3.5" />
               Leads CRM
+            </button>
+            <button
+              onClick={() => setActiveTab("gallery")}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${activeTab === "gallery"
+                ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-sky-950 font-bold shadow-sm shadow-cyan-950/40"
+                : "text-sky-300/70 hover:text-sky-100"
+                }`}
+            >
+              <ImageIcon className="w-3.5 h-3.5" />
+              Gallery {galleryItems.length > 0 && `(${galleryItems.length})`}
             </button>
             <button
               onClick={() => setActiveTab("security")}
@@ -445,7 +625,7 @@ export default function AdminDashboardClient({
               </div>
 
               <div className="p-4 rounded-2xl bg-[#0e2a4d]/85 border border-cyan-500/20 backdrop-blur-sm">
-                <div className="text-[11px] text-cyan-300 uppercase font-semibold">Car (Zero-Dep)</div>
+                <div className="text-[11px] text-cyan-300 uppercase font-semibold">Motor (Zero-Dep)</div>
                 <div className="text-2xl font-black text-cyan-300 mt-1">{motorCount}</div>
                 <div className="text-[10px] text-sky-400/50 mt-0.5">Tata AIG Auto</div>
               </div>
@@ -485,7 +665,7 @@ export default function AdminDashboardClient({
                 >
                   <option value="all">All Insurance Types</option>
                   <option value="health">Health Insurance</option>
-                  <option value="car">Car (Zero-Dep)</option>
+                  <option value="car">Motor (Zero-Dep)</option>
                   <option value="travel">Travel (Schengen)</option>
                   <option value="life">LIC Term Life</option>
                   <option value="senior">Senior Citizen</option>
@@ -662,7 +842,344 @@ export default function AdminDashboardClient({
           </>
         )}
 
-        {/* ================= TAB 2: SECURITY SETTINGS ================= */}
+        {/* ================= TAB 2: GALLERY MANAGER ================= */}
+        {activeTab === "gallery" && (
+          <div className="space-y-8">
+            {/* Gallery Header Banner */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#0e2a4d]/85 border border-cyan-500/25 backdrop-blur-sm shadow-xl">
+              <div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300">
+                    <ImageIcon className="w-4 h-4" />
+                  </div>
+                  <h2 className="text-lg font-bold text-cyan-200">Gallery & Milestone Manager</h2>
+                </div>
+                <p className="text-xs text-sky-300/70 mt-1">
+                  Upload authentic photos directly to Cloudinary CDN and feature them on your public gallery.
+                </p>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href="/gallery"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/35 text-cyan-300 text-xs font-semibold transition-colors"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  View Live Gallery
+                </a>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={fetchGalleryItems}
+                  disabled={galleryLoading}
+                  className="text-xs border-cyan-900/50 text-sky-200 hover:bg-[#123359]"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${galleryLoading ? "animate-spin text-cyan-400" : ""}`} />
+                  Refresh
+                </Button>
+              </div>
+            </div>
+
+            {/* Upload Box Card */}
+            <div className="p-6 rounded-2xl bg-[#0e2a4d]/80 border border-cyan-500/25 backdrop-blur-sm shadow-xl">
+              <div className="flex items-center justify-between border-b border-cyan-900/40 pb-4 mb-6">
+                <div>
+                  <h3 className="text-sm font-bold text-sky-100 flex items-center gap-2">
+                    <UploadCloud className="w-4 h-4 text-cyan-400" />
+                    Upload New Photo
+                  </h3>
+                  <p className="text-xs text-sky-300/70 mt-0.5">
+                    Images are uploaded directly to your Cloudinary storage and saved to MongoDB.
+                  </p>
+                </div>
+                <Badge variant="outline" className="text-[10px] text-teal-300 border-teal-500/40 bg-teal-950/30">
+                  Cloudinary CDN Direct
+                </Badge>
+              </div>
+
+              {uploadMessage && (
+                <div
+                  className={`p-3.5 rounded-xl text-xs flex items-center gap-2.5 mb-6 ${uploadMessage.type === "success"
+                    ? "bg-teal-500/15 border border-teal-500/40 text-teal-200"
+                    : "bg-rose-500/15 border border-rose-500/40 text-rose-200"
+                    }`}
+                >
+                  {uploadMessage.type === "success" ? (
+                    <CheckCircle className="w-4 h-4 text-teal-400 shrink-0" />
+                  ) : (
+                    <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                  )}
+                  <span>{uploadMessage.text}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleUploadImage} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                  {/* File Dropzone / Preview */}
+                  <div className="md:col-span-5 flex flex-col">
+                    <label className="text-xs font-semibold text-sky-200 mb-2">
+                      Photo File <span className="text-rose-400">*</span>
+                    </label>
+
+                    {uploadPreview ? (
+                      <div className="relative rounded-xl overflow-hidden border border-cyan-500/40 bg-[#091b30] flex flex-col items-center justify-center p-2 group">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={uploadPreview}
+                          alt="Preview"
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setUploadFile(null);
+                            setUploadPreview(null);
+                          }}
+                          className="absolute top-4 right-4 p-1.5 rounded-lg bg-rose-600/80 hover:bg-rose-600 text-white text-xs shadow-lg transition-colors cursor-pointer"
+                          title="Remove Image"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <div className="text-[11px] text-sky-300/80 mt-2 truncate max-w-full">
+                          {uploadFile?.name} ({(uploadFile?.size ? (uploadFile.size / 1024).toFixed(0) : 0)} KB)
+                        </div>
+                      </div>
+                    ) : (
+                      <label className="flex-1 min-h-[190px] border-2 border-dashed border-cyan-500/30 hover:border-cyan-400/60 rounded-xl bg-[#091b30]/60 hover:bg-[#091b30]/90 flex flex-col items-center justify-center p-6 text-center cursor-pointer transition-all group">
+                        <input
+                          type="file"
+                          accept="image/png,image/jpeg,image/webp,image/jpg"
+                          onChange={handleFileChange}
+                          className="hidden"
+                        />
+                        <div className="w-12 h-12 rounded-xl bg-cyan-500/10 group-hover:bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-3 transition-colors">
+                          <UploadCloud className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-semibold text-sky-100 group-hover:text-cyan-200">
+                          Click to select photo
+                        </span>
+                        <span className="text-[11px] text-sky-400/60 mt-1">
+                          Supports PNG, JPG, WebP (up to 10MB)
+                        </span>
+                      </label>
+                    )}
+                  </div>
+
+                  {/* Form Details */}
+                  <div className="md:col-span-7 space-y-4">
+                    <div>
+                      <label className="text-xs font-semibold text-sky-200 block mb-1.5">
+                        Photo Title <span className="text-rose-400">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={uploadTitle}
+                        onChange={(e) => setUploadTitle(e.target.value)}
+                        placeholder="e.g. Star Health Top Performer Trophy 2024"
+                        className="w-full px-3.5 py-2 rounded-xl bg-[#091b30] border border-cyan-900/60 focus:border-cyan-400 focus:outline-none text-sky-100 text-xs transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-semibold text-sky-200 block mb-1.5">
+                        Category <span className="text-rose-400">*</span>
+                      </label>
+                      <select
+                        value={uploadCategory}
+                        onChange={(e) => setUploadCategory(e.target.value)}
+                        className="w-full px-3.5 py-2 rounded-xl bg-[#091b30] border border-cyan-900/60 focus:border-cyan-400 focus:outline-none text-sky-100 text-xs transition-colors cursor-pointer"
+                      >
+                        <option value="Awards & Honors">Awards & Honors</option>
+                        <option value="Customer Handover">Customer Handover</option>
+                        <option value="Claim Settlement">Claim Settlement</option>
+                        <option value="Partner Meets">Partner Meets</option>
+                        <option value="Office & Community">Office & Community</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-semibold text-sky-200 block mb-1.5">
+                        Description / Story <span className="text-sky-400/60 font-normal">(Optional)</span>
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={uploadDescription}
+                        onChange={(e) => setUploadDescription(e.target.value)}
+                        placeholder="e.g. Received at the Annual Star Health Partner Conclave in Pune for achieving 100% claim settlement advocacy."
+                        className="w-full px-3.5 py-2 rounded-xl bg-[#091b30] border border-cyan-900/60 focus:border-cyan-400 focus:outline-none text-sky-100 text-xs transition-colors resize-none"
+                      />
+                    </div>
+
+                    <div className="pt-2 flex items-center justify-between gap-4">
+                      {isUploading ? (
+                        <div className="flex items-center gap-2 text-xs text-cyan-300">
+                          <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
+                          <span>{uploadProgress || "Uploading..."}</span>
+                        </div>
+                      ) : (
+                        <div className="text-[11px] text-sky-400/60">
+                          Published instantly to public gallery
+                        </div>
+                      )}
+
+                      <Button
+                        type="submit"
+                        disabled={isUploading || !uploadFile || !uploadTitle.trim()}
+                        className="bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 text-slate-950 font-bold text-xs px-5 py-2 rounded-xl shadow-lg shadow-cyan-950/50 cursor-pointer disabled:opacity-50"
+                      >
+                        {isUploading ? (
+                          <>
+                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                            Uploading...
+                          </>
+                        ) : (
+                          <>
+                            <UploadCloud className="w-3.5 h-3.5" />
+                            Upload & Publish
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            {/* Published Gallery Items */}
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <h3 className="text-sm font-bold text-cyan-200">
+                    Published Photos ({galleryItems.length})
+                  </h3>
+                  <Badge variant="outline" className="text-[10px] text-sky-300 border-sky-600/30">
+                    Live on Website
+                  </Badge>
+                </div>
+
+                {/* Category filters */}
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  {[
+                    "all",
+                    "Awards & Honors",
+                    "Customer Handover",
+                    "Claim Settlement",
+                    "Partner Meets",
+                    "Office & Community",
+                  ].map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setGalleryCategoryFilter(cat)}
+                      className={`text-xs px-3 py-1 rounded-lg transition-all cursor-pointer ${galleryCategoryFilter === cat
+                        ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-sky-950 font-bold shadow-sm"
+                        : "bg-[#091b30] text-sky-300/70 hover:text-sky-100 border border-cyan-900/40"
+                        }`}
+                    >
+                      {cat === "all" ? "All Photos" : cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {galleryLoading && galleryItems.length === 0 ? (
+                <div className="p-12 text-center rounded-2xl bg-[#0e2a4d]/40 border border-cyan-900/40 flex flex-col items-center justify-center">
+                  <Loader2 className="w-6 h-6 animate-spin text-cyan-400 mb-2" />
+                  <p className="text-xs text-sky-300">Loading gallery photos...</p>
+                </div>
+              ) : galleryItems.length === 0 ? (
+                <div className="p-12 text-center rounded-2xl bg-[#0e2a4d]/40 border border-dashed border-cyan-900/60 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3">
+                    <ImageIcon className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-sm font-bold text-sky-200">No photos uploaded yet</h4>
+                  <p className="text-xs text-sky-400/70 max-w-sm mt-1 mb-4">
+                    Your public gallery is currently displaying fallback showcase photos. Use the upload box above to publish your first real photo!
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {galleryItems
+                    .filter((item) =>
+                      galleryCategoryFilter === "all" ? true : item.category === galleryCategoryFilter
+                    )
+                    .map((item) => (
+                      <div
+                        key={item._id}
+                        className="group rounded-2xl bg-[#0e2a4d]/85 border border-cyan-500/25 overflow-hidden flex flex-col shadow-lg hover:border-cyan-400/50 transition-all"
+                      >
+                        {/* Image Container */}
+                        <div className="relative aspect-video w-full bg-[#091b30] overflow-hidden">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={item.imageUrl}
+                            alt={item.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                          <div className="absolute top-2.5 left-2.5">
+                            <Badge
+                              variant="outline"
+                              className="text-[10px] bg-[#0c2340]/90 backdrop-blur-md text-cyan-300 border-cyan-500/30"
+                            >
+                              {item.category}
+                            </Badge>
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-4 flex-1 flex flex-col justify-between">
+                          <div>
+                            <h4 className="text-xs font-bold text-sky-100 line-clamp-1 group-hover:text-cyan-200 transition-colors">
+                              {item.title}
+                            </h4>
+                            {item.description && (
+                              <p className="text-[11px] text-sky-300/70 mt-1 line-clamp-2">
+                                {item.description}
+                              </p>
+                            )}
+                          </div>
+
+                          <div className="pt-3 mt-3 border-t border-cyan-900/40 flex items-center justify-between text-[11px]">
+                            <span className="text-sky-400/60 flex items-center gap-1">
+                              <Calendar className="w-3 h-3" />
+                              {new Date(item.createdAt).toLocaleDateString("en-IN", {
+                                month: "short",
+                                day: "numeric",
+                                year: "numeric",
+                              })}
+                            </span>
+
+                            <div className="flex items-center gap-1.5">
+                              <a
+                                href={item.imageUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                title="View original image on Cloudinary"
+                                className="p-1.5 rounded-lg bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 border border-cyan-500/30 transition-colors"
+                              >
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                              <button
+                                onClick={() => handleDeleteGalleryItem(item._id)}
+                                title="Delete from Gallery & Cloudinary"
+                                className="p-1.5 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 border border-rose-500/30 transition-colors cursor-pointer"
+                              >
+                                <Trash2 className="w-3 h-3" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ================= TAB 3: SECURITY SETTINGS ================= */}
         {activeTab === "security" && (
           <div className="space-y-8">
 

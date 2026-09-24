@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { TESTIMONIALS, FAQS } from "@/app/data/insuranceData";
 import { Badge } from "@/components/ui/badge";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export const TestimonialsAndFAQ = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -42,13 +43,15 @@ export const TestimonialsAndFAQ = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {TESTIMONIALS.map((t, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-3xl bg-[#0e2a4d]/75 border border-cyan-500/20 backdrop-blur-xl flex flex-col justify-between hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-950/40 transition-all duration-300"
+                className="relative p-6 sm:p-7 rounded-3xl bg-[#0e2a4d]/75 border border-cyan-500/20 backdrop-blur-xl flex flex-col justify-between hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 group"
               >
-                <div>
+                <GlowingEffect variant="cyan" />
+
+                <div className="relative z-10">
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(t.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
@@ -56,11 +59,11 @@ export const TestimonialsAndFAQ = () => {
                   </div>
 
                   <p className="text-xs sm:text-sm text-sky-200/90 leading-relaxed italic mb-6">
-                    "{t.story}"
+                    &quot;{t.story}&quot;
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-cyan-900/40">
+                <div className="relative z-10 pt-4 border-t border-cyan-900/40">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-bold text-cyan-200 text-sm">{t.name}</div>

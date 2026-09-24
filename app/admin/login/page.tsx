@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("sneha.chaubal@snehamedicare.in");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +27,7 @@ export default function AdminLoginPage() {
       });
 
       if (res?.error) {
-        setError("Invalid access key or credentials. Please check SEED_ADMIN_KEY.");
+        setError("Invalid access credentials.");
         setLoading(false);
       } else {
         router.push("/admin");
@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
               <label className="block text-xs font-semibold text-sky-200 mb-1.5">
-                Agent Email
+              Username or Email
               </label>
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-400/50" />
@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="sneha.chaubal@snehamedicare.in"
+                  placeholder="Enter Username orr Email"
                   className="w-full bg-[#0b213c] border border-cyan-900/40 rounded-xl pl-10 pr-4 py-2.5 text-xs text-sky-100 placeholder:text-sky-400/40 focus:outline-none focus:border-cyan-400 transition-colors"
                 />
               </div>
@@ -94,7 +94,7 @@ export default function AdminLoginPage() {
 
             <div>
               <label className="block text-xs font-semibold text-sky-200 mb-1.5">
-                Admin Password / Access Key
+              Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-400/50" />
@@ -103,7 +103,7 @@ export default function AdminLoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder="Enter SEED_ADMIN_KEY from .env"
+                  placeholder="Password or Whatever"
                   className="w-full bg-[#0b213c] border border-cyan-900/40 rounded-xl pl-10 pr-4 py-2.5 text-xs text-sky-100 placeholder:text-sky-400/40 focus:outline-none focus:border-cyan-400 transition-colors"
                 />
               </div>
@@ -118,7 +118,7 @@ export default function AdminLoginPage() {
                 "Authenticating..."
               ) : (
                 <span className="flex items-center justify-center gap-2">
-                  Sign In to Dashboard
+                  Sign In
                   <ArrowRight className="w-4 h-4" />
                 </span>
               )}
@@ -130,7 +130,7 @@ export default function AdminLoginPage() {
               href="/"
               className="text-xs text-sky-300/70 hover:text-cyan-300 transition-colors inline-flex items-center gap-1"
             >
-              ← Back to Main Public Website
+              ← Back to Main Website
             </a>
           </div>
         </div>

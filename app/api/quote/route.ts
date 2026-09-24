@@ -55,7 +55,7 @@ export async function POST(req: Request) {
     // Pre-composed WhatsApp message for Sneha
     const typeLabel =
       insuranceType === "car"
-        ? "Car (Zero-Dep)"
+        ? "Motor (Zero-Dep)"
         : insuranceType === "travel"
           ? "International Travel (Schengen)"
           : insuranceType === "life"

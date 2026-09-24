@@ -25,7 +25,7 @@ export const AGENT_SERVICES: AgentService[] = [
   },
   {
     id: "car-motor-insurance",
-    title: "Car & Two-Wheeler Motor Insurance",
+    title: "Motor & Two-Wheeler Motor Insurance",
     tagline: "Zero-depreciation motor coverage with instant cashless garage claim assistance.",
     description: "Protect your vehicle with Tata AIG's industry-leading Auto Secure plans. Enjoy bumper-to-bumper zero dep, engine protection, return to invoice, and 24x7 spot roadside assistance.",
     badge: "Tata AIG Authorized",
@@ -130,8 +130,8 @@ export const PARTNER_INSURERS: PartnerInsurer[] = [
     tagline: "With You Always — Auto, Travel & Health Security",
     claimRatio: "99.0%",
     networkHospitals: "7,500+ Garages & 10,000+ Hospitals",
-    badge: "Top Choice for Car & Travel",
-    coverageTypes: "Zero-Dep Car • Schengen Travel • Health & Critical Care"
+    badge: "Top Choice for Motor & Travel",
+    coverageTypes: "Zero-Dep Motor • Schengen Travel • Health & Critical Care"
   }
 ];
 
@@ -193,7 +193,7 @@ export const INSURANCE_PLANS: InsurancePlan[] = [
   },
   {
     id: "tata-aig-auto-secure",
-    name: "Tata AIG Auto Secure (Car Package)",
+    name: "Tata AIG Auto Secure (Motor Package)",
     underwriter: "Tata AIG General Insurance",
     tagline: "Zero-depreciation motor coverage with instant cashless garage claim settlement.",
     badge: "7,500+ Cashless Garages",
@@ -496,7 +496,7 @@ export const FAQS = [
   },
   {
     question: "Which insurance products does Sneha cover?",
-    answer: "Sneha covers the complete spectrum of family and personal insurance: (1) Health Insurance & Senior Citizen Care via Star Health and Tata AIG, (2) Motor & Car Insurance with zero depreciation via Tata AIG, (3) International & Domestic Travel Insurance (Schengen & US visa approved) via Tata AIG and Star Health, and (4) Pure Term Life, Retirement, and Child Future Planning with LIC of India."
+    answer: "Sneha covers the complete spectrum of family and personal insurance: (1) Health Insurance & Senior Citizen Care via Star Health and Tata AIG, (2) Motor & Motor Insurance with zero depreciation via Tata AIG, (3) International & Domestic Travel Insurance (Schengen & US visa approved) via Tata AIG and Star Health, and (4) Pure Term Life, Retirement, and Child Future Planning with LIC of India."
   },
   {
     question: "Do I have to pay Sneha any consultation or service fee?",
@@ -508,7 +508,7 @@ export const FAQS = [
   },
   {
     question: "Which primary insurance companies is Sneha authorized to represent?",
-    answer: "Sneha is an authorized individual advisor for three of India's most respected underwriters: Star Health Insurance (Health & Senior Care), Life Insurance Corporation of India (LIC - Life & Term), and Tata AIG General Insurance (Car, Two-Wheeler, International Travel & Health)."
+    answer: "Sneha is an authorized individual advisor for three of India's most respected underwriters: Star Health Insurance (Health & Senior Care), Life Insurance Corporation of India (LIC - Life & Term), and Tata AIG General Insurance (Motor, Two-Wheeler, International Travel & Health)."
   },
   {
     question: "Can Sneha help review or transfer my existing policies?",
@@ -518,7 +518,7 @@ export const FAQS = [
 
 export const TRUST_STATS = [
   { label: "Core Insurers", value: "Star • LIC • Tata AIG", subtext: "Official certified agent" },
-  { label: "Insurance Types", value: "Health • Car • Travel • Life", subtext: "Complete family protection" },
+  { label: "Insurance Types", value: "Health • Motor • Travel • Life", subtext: "Complete family protection" },
   { label: "Cashless Network", value: "14,000+ Hosp / 7,500+ Garages", subtext: "Direct claim coordination" },
   { label: "Families Advised", value: "2,500+", subtext: "1-on-1 human advocacy" },
 ];

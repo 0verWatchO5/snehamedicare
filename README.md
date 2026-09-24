@@ -2,7 +2,7 @@
 
 > **IRDAI Certified Individual Insurance Agent**  
 > Official Agent for **Star Health & Allied Insurance**, **Life Insurance Corporation of India (LIC)**, and **Tata AIG General Insurance**.  
-> Complete insurance coverage across **Health & Mediclaim**, **Car (Zero Depreciation)**, **International & Schengen Travel**, and **Life & Term Security**.
+> Complete insurance coverage across **Health & Mediclaim**, **Motor (Zero Depreciation)**, **International & Schengen Travel**, and **Life & Term Security**.
 
 ---
 
@@ -26,7 +26,7 @@ Sneha MediCare Advisory is a modern, high-performance web platform built to prov
 
 3. **Tata AIG General Insurance Co. Ltd.**
    - General insurance specialist for motor and international travel.
-   - **Auto Secure (Car Insurance)**: Bumper-to-bumper zero-depreciation coverage with 8,200+ cashless garages.
+   - **Auto Secure (Motor Insurance)**: Bumper-to-bumper zero-depreciation coverage with 8,200+ cashless garages.
    - **Travel Guard**: 100% Schengen Visa-compliant medical insurance (€30,000+), trip cancellation, and flight delay protection.
 
 ---
@@ -35,7 +35,7 @@ Sneha MediCare Advisory is a modern, high-performance web platform built to prov
 
 - **Unified Sticky Navigation**: Zero-gap header combining official credentials, live WhatsApp contact, and in-page navigation.
 - **Hero Value Proposition**: Modern, calm design with no synthetic neon glows; establishes immediate trust and category quick-filters.
-- **Interactive Multi-Insurance Calculator**: Instant premium, discount, and tax deduction estimates for Health, Car, Travel, and Life insurance.
+- **Interactive Multi-Insurance Calculator**: Instant premium, discount, and tax deduction estimates for Health, Motor, Travel, and Life insurance.
 - **Curated Policy Showcase**: Filterable plan cards with fine-print highlights (e.g. Zero Room Rent Capping, Bumper-to-Bumper, Schengen Approved).
 - **Cashless Hospital Directory**: Searchable locator across top apex and multi-specialty hospitals in major Indian metros.
 - **45-Minute Bedside Claim Concierge**: Step-by-step interactive simulator detailing how Sneha resolves hospital cashless pre-authorizations.

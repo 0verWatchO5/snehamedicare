@@ -37,7 +37,7 @@ The calculator provides instant, client-side pricing approximations across 4 ins
 
 ---
 
-### B. Tab 2: Car Insurance (Zero Depreciation)
+### B. Tab 2: Motor Insurance (Zero Depreciation)
 - **Inputs**:
   - `vehicleSegment`: Hatchback (e.g. Swift/i20), Sedan (e.g. City/Verna), Mid-SUV (e.g. Creta/Seltos), Luxury / EV (e.g. BMW/Ioniq).
   - `vehicleAge`: New (Year 1), 1–2 Years, 2–4 Years, 4+ Years.

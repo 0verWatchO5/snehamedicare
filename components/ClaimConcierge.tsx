@@ -1,27 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
-  Clock,
-  ShieldCheck,
-  Send,
   UserCheck,
-  Building,
   CheckCircle2,
-  FileText,
-  PhoneCall,
-  Sparkles,
-  Search,
   Zap,
-  ArrowRight,
   MessageSquare
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export const ClaimConcierge = () => {
-  const [claimInput, setClaimInput] = useState<string>("SNEHA-9942");
-
   const steps = [
     {
       num: "01",
@@ -72,15 +61,17 @@ export const ClaimConcierge = () => {
         </div>
 
         {/* 4-Step Process Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.num}
-                className="relative rounded-3xl p-6 bg-[#0e2a4d]/75 border border-cyan-500/20 backdrop-blur-xl hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group hover:shadow-xl hover:shadow-cyan-950/40"
+                className="relative rounded-3xl p-6 bg-[#0e2a4d]/75 border border-cyan-500/20 backdrop-blur-xl hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group hover:shadow-2xl hover:shadow-cyan-500/20"
               >
-                <div>
+                <GlowingEffect variant="cyan" />
+
+                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-3xl font-black text-[#1e4677] group-hover:text-cyan-400/50 transition-colors">
                       {step.num}
@@ -102,111 +93,12 @@ export const ClaimConcierge = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-cyan-900/40 flex items-center text-[11px] text-cyan-300 font-semibold">
+                <div className="relative z-10 pt-4 mt-4 border-t border-cyan-900/40 flex items-center text-[11px] text-cyan-300 font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-cyan-400" /> Handled by Sneha
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Interactive Live Claim Tracker Simulator */}
-        <div className="bg-gradient-to-b from-[#0e2a4d]/90 to-[#0a1f38]/95 border border-cyan-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl shadow-cyan-950/50 backdrop-blur-2xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pb-8 border-b border-cyan-900/40">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5 mb-1">
-                <Clock className="w-4 h-4" /> Live Claim Assistance Simulator
-              </span>
-              <h3 className="text-2xl font-black text-cyan-200">
-                Track Real-Time Cashless Pre-Authorization
-              </h3>
-            </div>
-
-            {/* Quick Claim ID search */}
-            <div className="flex items-center gap-2 w-full md:w-auto">
-              <div className="relative flex-1 md:w-64">
-                <input
-                  type="text"
-                  value={claimInput}
-                  onChange={(e) => setClaimInput(e.target.value.toUpperCase())}
-                  placeholder="e.g., SNEHA-9942"
-                  className="w-full px-4 py-2.5 bg-[#0b213c] border border-cyan-900/40 rounded-xl text-xs text-cyan-200 uppercase tracking-wider focus:outline-none focus:border-cyan-400"
-                />
-              </div>
-              <Button variant="default" size="sm" className="text-xs font-bold">
-                <Search className="w-3.5 h-3.5" />
-                Track
-              </Button>
-            </div>
-          </div>
-
-          {/* Claim Status Mock Dashboard */}
-          <div className="pt-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-              <div className="p-4 rounded-2xl bg-[#0b213c]/80 border border-cyan-900/40 text-xs">
-                <span className="text-sky-300/60 block mb-1">Claim Reference ID</span>
-                <strong className="text-sm font-mono text-cyan-300 font-bold tracking-wider">
-                  {claimInput || "SNEHA-9942"}
-                </strong>
-              </div>
-              <div className="p-4 rounded-2xl bg-[#0b213c]/80 border border-cyan-900/40 text-xs">
-                <span className="text-sky-300/60 block mb-1">Hospital Network</span>
-                <strong className="text-sm text-cyan-200 font-bold block truncate">
-                  Apollo Multispeciality, Belapur
-                </strong>
-              </div>
-              <div className="p-4 rounded-2xl bg-[#0b213c]/80 border border-cyan-900/40 text-xs">
-                <span className="text-sky-300/60 block mb-1">Dedicated Advisor</span>
-                <strong className="text-sm text-cyan-300 font-bold flex items-center gap-1">
-                  Sneha (Direct Contact)
-                </strong>
-              </div>
-              <div className="p-4 rounded-2xl bg-[#0b213c]/80 border border-cyan-900/40 text-xs">
-                <span className="text-sky-300/60 block mb-1">Pre-Auth Status</span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-200 font-bold text-xs">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                  APPROVED (₹3,50,000)
-                </span>
-              </div>
-            </div>
-
-            {/* Visual Timeline Stepper */}
-            <div className="relative">
-              <div className="hidden sm:block absolute top-1/2 left-0 right-0 h-0.5 bg-cyan-900/40 -translate-y-1/2 z-0" />
-
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 relative z-10">
-                {[
-                  { title: "Intimation to Sneha", time: "11:02 PM", status: "completed", desc: "Admission advice received via WhatsApp" },
-                  { title: "Sneha Liaised with TPA", time: "11:14 PM", status: "completed", desc: "Hospital TPA desk contacted directly" },
-                  { title: "Pre-Auth Transmitted", time: "11:36 PM", status: "completed", desc: "Express cashless approval issued" },
-                  { title: "Admission Cleared", time: "11:38 PM", status: "active", desc: "Patient admitted in Single AC Room" },
-                ].map((item, idx) => (
-                  <div key={idx} className="bg-[#0b213c]/90 border border-cyan-900/50 rounded-2xl p-4 flex flex-col items-center text-center">
-                    <div className="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-500/50 flex items-center justify-center text-cyan-300 text-xs font-bold mb-2 shadow-sm">
-                      ✓
-                    </div>
-                    <div className="text-xs font-bold text-cyan-200 mb-0.5">{item.title}</div>
-                    <span className="text-[10px] text-cyan-300 font-mono font-medium mb-1">{item.time}</span>
-                    <p className="text-[11px] text-sky-300/70">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-cyan-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-sky-300/70">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                <span>Turnaround Time: <strong className="text-cyan-300 font-bold">34 Minutes</strong> (Within 45-Min Target)</span>
-              </div>
-              <a
-                href="tel:7400319725"
-                className="text-cyan-300 hover:text-cyan-200 flex items-center gap-1 font-semibold"
-              >
-                <PhoneCall className="w-3.5 h-3.5" />
-                Need Emergency Assistance? Call Sneha directly at +91 7400319725
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
